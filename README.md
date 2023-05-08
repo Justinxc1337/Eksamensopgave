@@ -1,3 +1,3 @@
 # Eksamensopgave
 
-© 2023 Alexander Wentzel, Casper Emil Hechmann, Nicklas Galver & Justin Chardonnay. All Rights Reserved.
+© 2023 Alexander Wentzel, Casper Emil Hechmann, Nicklas Flor Galver & Justin Chardonnay. All Rights Reserved.
