@@ -11,9 +11,9 @@ public class ProjectApplication {
 		SpringApplication.run(ProjectApplication.class, args);
 	}
 
-	@GetMapping("/dansk")
-	public String dansk() {
-		return "dansk";
+	@GetMapping("/")
+	public String index() {
+		return "index";
 	}
 
 }
