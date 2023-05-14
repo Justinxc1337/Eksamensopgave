@@ -11,9 +11,4 @@ public class ProjectApplication {
 		SpringApplication.run(ProjectApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
-
 }

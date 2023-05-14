@@ -20,4 +20,14 @@ public class person {
     private String enavn;
     private String kørerkort_nummer;
     private LocalDateTime fødselsdato;
+
+
+public void setfnavn(String fnavn) {
+    this.fnavn = fnavn;
+}
+
+public void setenavn(String enavn) {
+    this.enavn = enavn;
+}
+
 }
