@@ -31,6 +31,11 @@ public class UIcontroller {
 		return "dansk";
 	}
 
+    @GetMapping("/engesk")
+	public String engelsk() {
+		return "";
+	}
+
     @RequestMapping(value="/save", method=RequestMethod.POST)    
     public ModelAndView save(@ModelAttribute person person) 
     {    
@@ -39,6 +44,11 @@ public class UIcontroller {
     modelAndView.addObject("person", person);      
     return modelAndView;    
 }    
+
+    @GetMapping("fejl")
+    public String fejl() {
+        return "indsæt fejl kode java application here:)";
+    }
 
     
 }
