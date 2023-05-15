@@ -2,36 +2,34 @@ package com.intec.project.entities;
 
 import java.time.LocalDateTime;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+
+@Entity
 public class person {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int person_id;
     private String fnavn;
     private String enavn;
     private String kørerkort_nummer;
     private LocalDateTime fødselsdato;
 
+    public person(){}
 
-public person(int person_id, String fnavn, String enavn, String kørerkort_nummer) {
+    public person(int person_id, String fnavn, String enavn, String kørerkort_nummer) {
     this.person_id = person_id;
     this.fnavn = fnavn;
     this.enavn = enavn;
     this.kørerkort_nummer = kørerkort_nummer;
-}
+    }
 
-public person(LocalDateTime fødselsdato) {
+    public person(LocalDateTime fødselsdato) {
     this.fødselsdato = fødselsdato;
-}
+    }
 
 
     public int getPerson_id() {
@@ -66,11 +64,11 @@ public person(LocalDateTime fødselsdato) {
         this.kørerkort_nummer = kørerkort_nummer;
     }
 
-    public String getFødselsdato() {
+    public LocalDateTime getFødselsdato() {
         return this.fødselsdato;
     }
 
-    public void setFødselsdato(String fødselsdato) {
+    public void setFødselsdato(LocalDateTime fødselsdato) {
         this.fødselsdato = fødselsdato;
     }
 
