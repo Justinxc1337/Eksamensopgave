@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 public class person {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int person_id;
     private String fnavn;
     private String enavn;
