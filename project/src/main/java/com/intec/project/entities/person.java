@@ -66,11 +66,11 @@ public person(LocalDateTime fødselsdato) {
         this.kørerkort_nummer = kørerkort_nummer;
     }
 
-    public String getFødselsdato() {
+    public LocalDateTime getFødselsdato() {
         return this.fødselsdato;
     }
 
-    public void setFødselsdato(String fødselsdato) {
+    public void setFødselsdato(LocalDateTime fødselsdato) {
         this.fødselsdato = fødselsdato;
     }
 
