@@ -19,7 +19,7 @@ public class person {
     private String fnavn;
     private String enavn;
     private String kørerkort_nummer;
-    private String fødselsdato;
+    private LocalDateTime fødselsdato;
 
 
 public person(int person_id, String fnavn, String enavn, String kørerkort_nummer) {
@@ -27,6 +27,10 @@ public person(int person_id, String fnavn, String enavn, String kørerkort_numme
     this.fnavn = fnavn;
     this.enavn = enavn;
     this.kørerkort_nummer = kørerkort_nummer;
+}
+
+public person(LocalDateTime fødselsdato) {
+    this.fødselsdato = fødselsdato;
 }
 
 
