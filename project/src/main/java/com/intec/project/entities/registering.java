@@ -12,17 +12,17 @@ public class registering {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int registering_id;
-    private int firma_id;
-    private int lokation_id;
     private LocalDateTime indtjekningstidspunkt;
+    private firma firma;
+    private lokation lokation;
 
     public registering() {}
 
-    public registering(int registering_id, int firma_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
+    public registering(int registering_id, LocalDateTime indtjekningstidspunkt) {
         this.registering_id = registering_id;
-        this.firma_id = firma_id;
-        this.lokation_id = lokation_id;
         this.indtjekningstidspunkt = indtjekningstidspunkt;
+        firma = new firma();
+        lokation = new lokation();
     }
 
     public int getRegistering_id() {
@@ -33,22 +33,6 @@ public class registering {
         this.registering_id = registering_id;
     }
 
-    public int getFirma_id() {
-        return this.firma_id;
-    }
-
-    public void setFirma_id(int firma_id) {
-        this.firma_id = firma_id;
-    }
-
-    public int getLokation_id() {
-        return this.lokation_id;
-    }
-
-    public void setLokation_id(int lokation_id) {
-        this.lokation_id = lokation_id;
-    }
-
     public LocalDateTime getIndtjekningstidspunkt() {
         return this.indtjekningstidspunkt;
     }
@@ -57,13 +41,32 @@ public class registering {
         this.indtjekningstidspunkt = indtjekningstidspunkt;
     }
 
+
+    public firma getFirma() {
+        return this.firma;
+    }
+
+    public void setFirma(firma firma) {
+        this.firma = firma;
+    }
+
+    public lokation getLokation() {
+        return this.lokation;
+    }
+
+    public void setLokation(lokation lokation) {
+        this.lokation = lokation;
+    }
+
+
     @Override
     public String toString() {
         return "{" +
             " registering_id='" + getRegistering_id() + "'" +
-            ", firma_id='" + getFirma_id() + "'" +
-            ", lokation_id='" + getLokation_id() + "'" +
             ", indtjekningstidspunkt='" + getIndtjekningstidspunkt() + "'" +
+            ", firma='" + getFirma() + "'" +
+            ", lokation='" + getLokation() + "'" +
             "}";
     }
+
 }

@@ -1,23 +1,24 @@
 package com.intec.project.entities;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 
 @Entity
-public class DSV {
+public class DSV extends person {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int DSV_id;
-    private int person_id;
 
     public DSV(){}
 
-    public DSV(int DSV_id, int person_id) {
+    public DSV(int DSV_id, int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
+        super(person_id, fnavn, enavn, kørerkort_nummer, fødselsdato);
         this.DSV_id = DSV_id;
-        this.person_id = person_id;
     }
 
     public int getDSV_id() {
@@ -27,20 +28,9 @@ public class DSV {
         DSV_id = dSV_id;
     }
 
-    public int getPerson_id() {
-        return person_id;
-    }
-
-    public void setPerson_id(int person_id) {
-        this.person_id = person_id;
-    }
-
     @Override
     public String toString() {
-        return "{" +
-            " DSV_id='" + getDSV_id() + "'" +
-            ", person_id='" + getPerson_id() + "'" +
-            "}";
+        return "{" + "DVS_id= " + getDSV_id() + "\n" +
+                super.toString() + "}";
     }
-
 }

@@ -20,17 +20,13 @@ public class person {
 
     public person(){}
 
-    public person(int person_id, String fnavn, String enavn, String kørerkort_nummer) {
+    public person(int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
     this.person_id = person_id;
     this.fnavn = fnavn;
     this.enavn = enavn;
     this.kørerkort_nummer = kørerkort_nummer;
-    }
-
-    public person(LocalDateTime fødselsdato) {
     this.fødselsdato = fødselsdato;
     }
-
 
     public int getPerson_id() {
         return this.person_id;
@@ -72,6 +68,8 @@ public class person {
         this.fødselsdato = fødselsdato;
     }
 
+    public void setFirma(firma firma) {
+    }
 
     @Override
     public String toString() {

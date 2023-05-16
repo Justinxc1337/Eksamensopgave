@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.intec.project.entities.firma;
 import com.intec.project.entities.person;
 import com.intec.project.services.personService;
 
@@ -17,8 +18,8 @@ public class personController{
     private personService personService;
 
     @PostMapping
-    public ResponseEntity<person> registerPerson(@RequestParam String fnavn, @RequestParam String enavn, @RequestParam String kørerkort_nummer, @RequestParam LocalDateTime fødselsdato) {
-        person person = personService.registerPerson(fnavn, enavn, kørerkort_nummer, fødselsdato);
+    public ResponseEntity<person> registerPerson(@RequestParam firma firma, @RequestParam String fnavn, @RequestParam String enavn, @RequestParam String kørerkort_nummer, @RequestParam LocalDateTime fødselsdato) {
+        person person = personService.registerPerson(firma, fnavn, enavn, kørerkort_nummer, fødselsdato);
         return new ResponseEntity<>(person, HttpStatus.CREATED);
     }
 }
