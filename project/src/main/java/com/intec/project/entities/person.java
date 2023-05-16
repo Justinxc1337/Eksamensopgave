@@ -2,16 +2,9 @@ package com.intec.project.entities;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
-
-@Entity
 public class person {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int person_id;
     private String fnavn;
     private String enavn;
@@ -78,6 +71,4 @@ public class person {
             ", fødselsdato='" + getFødselsdato() + "'" +
             "}";
     }
-
-
 }

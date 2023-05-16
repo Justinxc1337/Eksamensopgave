@@ -1,4 +1,4 @@
-package com.intec.project.repositories;
+package com.intec.project.DBController;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,5 +44,4 @@ public class DatabaseConnectionManager {
         }
         return conn;
     }
-
 }

@@ -1,14 +1,7 @@
 package com.intec.project.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-@Entity
 public class lokation {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private int lokation_id;
     private String lokation_navn;
 

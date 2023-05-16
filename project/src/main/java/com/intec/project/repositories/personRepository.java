@@ -1,33 +1,34 @@
 package com.intec.project.repositories;
 
-import com.intec.project.entities.person;
-import com.intec.project.interfaces.CRUDInterface;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 
-public interface personRepository extends CRUDInterface<person> {
+import com.intec.project.DBController.DatabaseConnectionManager;
+import com.intec.project.entities.person;
+import com.intec.project.repositories.interfaces.CRUDInterface;
+
+public interface PersonRepository extends CRUDInterface<person> {
 
     java.sql.Connection connection = DatabaseConnectionManager.getConnection();
    
     @Override
-    public boolean create(person entity) {
+    public default boolean create(person entity) {
 
         String fnavn = entity.getFnavn();
         String enavn = entity.getEnavn();
-        String firma_navn = entity.getFirma_navn();
         String kørerkort_nummer = entity.getKørerkort_nummer();
         LocalDateTime fødselsdato = entity.getFødselsdato();
 
         String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) " + 
-        " VALUES ('"+fnavn+"', '"+enavn+"', +'"kørerkort_nummer+"', '"+fødselsdato+"');";
-        
-        String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) " + " VALUES('"+firma_navn+"');";
+        " VALUES ('"+fnavn+"', '"+enavn+"', '"+kørerkort_nummer+"', '"+fødselsdato+"');";
         
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, fnavn);
             stmt.setString(2, enavn);
-            stmt.setInt(3, firma);
-            stmt.setInt(4, lokation_navn);
-            stmt.setObject(5, indtjekningstidspunkt);
+            stmt.setString(3, kørerkort_nummer);
+            stmt.setObject(4, fødselsdato);
 
             stmt.executeUpdate();
             return true;
