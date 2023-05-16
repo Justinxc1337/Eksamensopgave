@@ -1,28 +1,29 @@
 package com.intec.project.entities;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class firma {
+public class firma extends person {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int firma_id;
-    private DHL DHL;
-    private DSV DSV;
-    private GLS GLS;
-    
+    private String firma_navn;
+
 
     public firma() {}
 
-    public firma(int firma_id) {
+
+    public firma(int firma_id, String firma_navn, int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
+        super(person_id, fnavn, enavn, kørerkort_nummer, fødselsdato);
         this.firma_id = firma_id;
-        DHL = new DHL();
-        DSV = new DSV();
-        GLS = new GLS();
+        this.firma_navn = firma_navn;
     }
+
 
     public int getFirma_id() {
         return this.firma_id;
@@ -33,39 +34,20 @@ public class firma {
     }
 
 
-    public DHL getDHL() {
-        return this.DHL;
+    public String getFirma_navn() {
+        return this.firma_navn;
     }
 
-    public void setDHL(DHL DHL) {
-        this.DHL = DHL;
+    public void setFirma_navn(String firma_navn) {
+        this.firma_navn = firma_navn;
     }
-
-    public DSV getDSV() {
-        return this.DSV;
-    }
-
-    public void setDSV(DSV DSV) {
-        this.DSV = DSV;
-    }
-
-    public GLS getGLS() {
-        return this.GLS;
-    }
-
-    public void setGLS(GLS GLS) {
-        this.GLS = GLS;
-    }
-
+    
 
     @Override
     public String toString() {
-        return "{" +
-            " firma_id='" + getFirma_id() + "'" +
-            ", DHL='" + getDHL() + "'" +
-            ", DSV='" + getDSV() + "'" +
-            ", GLS='" + getGLS() + "'" +
-            "}";
+        return super.toString() + " firma_id='" + getFirma_id() + "'" +
+            ", firma_navn='" + getFirma_navn() + "'";
     }
+   
 
 }

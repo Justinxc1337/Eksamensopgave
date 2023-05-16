@@ -68,9 +68,6 @@ public class person {
         this.fødselsdato = fødselsdato;
     }
 
-    public void setFirma(firma firma) {
-    }
-
     @Override
     public String toString() {
         return "{" +
@@ -81,5 +78,6 @@ public class person {
             ", fødselsdato='" + getFødselsdato() + "'" +
             "}";
     }
+
 
 }
