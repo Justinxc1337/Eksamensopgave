@@ -14,7 +14,6 @@ public class firma {
     private int DVS_id;
     private int GLS_id;
 
-
     public firma() {}
 
     public firma(int firma_id, int DHL_id, int DVS_id, int GLS_id) {
