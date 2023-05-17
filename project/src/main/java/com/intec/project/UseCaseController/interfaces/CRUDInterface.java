@@ -1,4 +1,4 @@
-package com.intec.project.repositories.interfaces;
+package com.intec.project.UseCaseController.interfaces;
 
 public interface CRUDInterface<T> {
     
