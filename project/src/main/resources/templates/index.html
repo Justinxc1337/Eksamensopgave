@@ -1,8 +1,11 @@
-<html lang="en">    
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">   
 <head>    
 <title>Index Page</title>    
+<link rel="stylesheet" th:href="@{stylesheet.css}" href="/css/index.css">
 </head>    
 <body>    
+<div th:replace="templates/renamed.html"></div>    
 <form action="save" method="post">    
 <table>    
 <tr>    
