@@ -132,12 +132,10 @@ public class UseCaseController {
     
             String firma_navn = entity.getFirma_navn();
     
-            if (firma_navn.equals("DHL") || firma_navn.equals("GLS") || firma_navn.equals("DSV")) {
-                String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) " + 
-                        " VALUES ('" + firma_navn + "');";
-                
-                try {
-                    PreparedStatement stmt = connection.prepareStatement(query);
+            if (firma_navn.equals("DHL")) {
+                String query = "INSERT INTO `intecdatabase`.`firma` (`DHL`) VALUES (?);";
+    
+                try (PreparedStatement stmt = connection.prepareStatement(query)) {
                     stmt.setString(1, firma_navn);
     
                     stmt.executeUpdate();
@@ -145,30 +143,44 @@ public class UseCaseController {
                 } catch (SQLException e) {
                     e.printStackTrace();
                     return false;
-                } finally {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
                 }
-            } else {
-                String columnName = "column_" + firma_navn.toLowerCase().replaceAll("[^a-z0-9_]", "");
-                String query = "ALTER TABLE `intecdatabase`.`firma` ADD COLUMN `" + columnName + "` VARCHAR(45);";
+
+            } else if (firma_navn.equals("GLS")) {
+                String query = "INSERT INTO `intecdatabase`.`firma` (`GLS`) VALUES (?);";
     
-                try {
-                    PreparedStatement stmt = connection.prepareStatement(query);
+                try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                    stmt.setString(1, firma_navn);
+    
                     stmt.executeUpdate();
                     return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
                     return false;
-                } finally {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
+                }
+
+            } else if (firma_navn.equals("DSV")) {
+                String query = "INSERT INTO `intecdatabase`.`firma` (`DSV`) VALUES (?);";
+    
+                try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                    stmt.setString(1, firma_navn);
+    
+                    stmt.executeUpdate();
+                    return true;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+                
+            } else {
+                String columnName = "column_" + firma_navn.toLowerCase().replaceAll("[^a-z0-9_]", "");
+                String query = "ALTER TABLE `intecdatabase`.`firma` ADD COLUMN `" + columnName + "` VARCHAR(45);";
+    
+                try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                    stmt.executeUpdate();
+                    return true;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return false;
                 }
             }
         }
