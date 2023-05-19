@@ -126,34 +126,53 @@ public class UseCaseController {
     public interface Firma extends CRUDInterface<firma> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
-       
+    
         @Override
         public default boolean create(firma entity) {
     
             String firma_navn = entity.getFirma_navn();
     
-            String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) " + 
-            " VALUES ('"+firma_navn+"');";
-            
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setString(1, firma_navn);
-    
-                stmt.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
-            } finally {
+            if (firma_navn.equals("DHL") || firma_navn.equals("GLS") || firma_navn.equals("DSV")) {
+                String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) " + 
+                        " VALUES ('" + firma_navn + "');";
                 
                 try {
-                    connection.close();
+                    PreparedStatement stmt = connection.prepareStatement(query);
+                    stmt.setString(1, firma_navn);
+    
+                    stmt.executeUpdate();
+                    return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    return false;
+                } finally {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                String columnName = "column_" + firma_navn.toLowerCase().replaceAll("[^a-z0-9_]", "");
+                String query = "ALTER TABLE `intecdatabase`.`firma` ADD COLUMN `" + columnName + "` VARCHAR(45);";
+    
+                try {
+                    PreparedStatement stmt = connection.prepareStatement(query);
+                    stmt.executeUpdate();
+                    return true;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return false;
+                } finally {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
-
+    
     
 }
