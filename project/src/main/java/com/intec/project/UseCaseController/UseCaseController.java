@@ -186,5 +186,28 @@ public class UseCaseController {
         }
     }
     
+    public interface GDPR extends CRUDInterface<registering> {
+
+        java.sql.Connection connection = DatabaseConnectionManager.getConnection();
     
+        @Override
+        public default void delete(LocalDateTime indtjekningstidpunkt) {
+            LocalDateTime fiveYearsAgo = LocalDateTime.now().minusYears(5);
+            
+            String query = "DELETE FROM `intecdatabase`.`registering` WHERE `indtjekningstidspunkt` <= ?";
+            
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                stmt.setObject(1, fiveYearsAgo);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
