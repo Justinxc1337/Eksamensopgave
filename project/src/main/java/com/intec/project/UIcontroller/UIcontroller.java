@@ -18,22 +18,22 @@ public class UIcontroller {
 
     @GetMapping("/dansk")
 	public String dansk() {
-		return "dansk";
+		return "redirect:/dansk";
 	}
 
     @GetMapping("/engelsk")
 	public String engelsk() {
-		return "engelsk";
+		return "redirect:/engelsk";
 	}
 
     @GetMapping("/formularDansk")
     public String formularDansk(){
-        return "formularDansk";
+        return "redirect:/formularDansk";
     }
 
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
-        return "formularEngelsk";
+        return "redirect:/formularEngelsk";
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)    
