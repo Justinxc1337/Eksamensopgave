@@ -9,41 +9,40 @@ import com.intec.project.UseCaseController.interfaces.CRUDInterface;
 import com.intec.project.entities.firma;
 import com.intec.project.entities.lokation;
 import com.intec.project.entities.person;
-import com.intec.project.entities.registering;
+import com.intec.project.entities.registrering;
 
 public class UseCaseController {
     
-    public interface Registering extends CRUDInterface<registering> {
+    public interface Registering extends CRUDInterface<registrering> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
        
-        @Override
-        public default boolean create(registering entity) {
-    
-            int registering_id = entity.getRegistering_id();
+
+
+        default void create(registrering entity) {
+
+            int registrering_id = entity.getRegistrering_id();
             int firma_id = entity.getFirma_id();
             int person_id = entity.getPerson_id();
             int lokation_id = entity.getLokation_id();
             LocalDateTime indtjekningstidspunkt = entity.getIndtjekningstidspunkt();
-    
-            String query = "INSERT INTO `intecdatabase`.`registering` (`registering_id`, `firma_id`, `person_id`, `person_id`, `lokation_id`, `indtjekningstidspunkt`) " + 
-            " VALUES ('"+registering_id+"', '"+firma_id+"', '"+person_id+"', '"+lokation_id+"', '"+indtjekningstidspunkt+"');";
-            
+
+            String query = "INSERT INTO `intecdatabase`.`registrering` (`registrering_id`, `firma_id`, `person_id`, `person_id`, `lokation_id`, `indtjekningstidspunkt`) " +
+            " VALUES ('"+registrering_id+"', '"+firma_id+"', '"+person_id+"', '"+lokation_id+"', '"+indtjekningstidspunkt+"');";
+
             try {
                 PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setInt(1, registering_id);
+                stmt.setInt(1, registrering_id);
                 stmt.setInt(2, firma_id);
                 stmt.setInt(3, person_id);
                 stmt.setInt(4, lokation_id);
                 stmt.setObject(5, indtjekningstidspunkt);
-    
+
                 stmt.executeUpdate();
-                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
-                return false;
             } finally {
-                
+
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -56,9 +55,8 @@ public class UseCaseController {
     public interface Person extends CRUDInterface<person> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
-       
-        @Override
-        public default boolean create(person entity) {
+
+         default void create(person entity) {
     
             String fnavn = entity.getFnavn();
             String enavn = entity.getEnavn();
@@ -76,10 +74,8 @@ public class UseCaseController {
                 stmt.setObject(4, fødselsdato);
     
                 stmt.executeUpdate();
-                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
-                return false;
             } finally {
                 
                 try {
@@ -95,8 +91,8 @@ public class UseCaseController {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
        
-        @Override
-        public default boolean create(lokation entity) {
+
+        default void create(lokation entity) {
     
             String lokation_navn = entity.getLokation_navn();
     
@@ -108,10 +104,8 @@ public class UseCaseController {
                 stmt.setString(1, lokation_navn);
     
                 stmt.executeUpdate();
-                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
-                return false;
             } finally {
                 
                 try {
@@ -127,8 +121,8 @@ public class UseCaseController {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
     
-        @Override
-        public default boolean create(firma entity) {
+
+        default void create(firma entity) {
     
             String firma_navn = entity.getFirma_navn();
     
@@ -139,10 +133,8 @@ public class UseCaseController {
                     stmt.setString(1, firma_navn);
     
                     stmt.executeUpdate();
-                    return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    return false;
                 }
 
             } else if (firma_navn.equals("GLS")) {
@@ -152,10 +144,8 @@ public class UseCaseController {
                     stmt.setString(1, firma_navn);
     
                     stmt.executeUpdate();
-                    return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    return false;
                 }
 
             } else if (firma_navn.equals("DSV")) {
@@ -165,10 +155,8 @@ public class UseCaseController {
                     stmt.setString(1, firma_navn);
     
                     stmt.executeUpdate();
-                    return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    return false;
                 }
                 
             } else {
@@ -177,24 +165,21 @@ public class UseCaseController {
     
                 try (PreparedStatement stmt = connection.prepareStatement(query)) {
                     stmt.executeUpdate();
-                    return true;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    return false;
                 }
             }
         }
     }
     
-    public interface GDPR extends CRUDInterface<registering> {
+    public interface GDPR extends CRUDInterface<registrering> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
-    
-        @Override
-        public default void delete(LocalDateTime indtjekningstidpunkt) {
+
+        default void delete(LocalDateTime indtjekningstidpunkt) {
             LocalDateTime fiveYearsAgo = LocalDateTime.now().minusYears(5);
             
-            String query = "DELETE FROM `intecdatabase`.`registering` WHERE `indtjekningstidspunkt` <= ?";
+            String query = "DELETE FROM `intecdatabase`.`registrering` WHERE `indtjekningstidspunkt` <= ?";
             
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
                 stmt.setObject(1, fiveYearsAgo);
@@ -210,5 +195,5 @@ public class UseCaseController {
             }
         }
     }
-    
+
 }

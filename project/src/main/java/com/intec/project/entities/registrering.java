@@ -2,30 +2,30 @@ package com.intec.project.entities;
 
 import java.time.LocalDateTime;
 
-public class registering {
+public class registrering {
 
-    private int registering_id;
+    private int registrering_id;
     private int firma_id;
     private int person_id;
     private int lokation_id;
     private LocalDateTime indtjekningstidspunkt;
 
-    public registering() {}
+    public registrering() {}
 
-    public registering(int registering_id, int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
-        this.registering_id = registering_id;
+    public registrering(int registrering_id, int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
+        this.registrering_id = registrering_id;
         this.firma_id = firma_id;
         this.person_id = person_id;
         this.lokation_id = lokation_id;
         this.indtjekningstidspunkt = indtjekningstidspunkt;
     }
 
-    public int getRegistering_id() {
-        return this.registering_id;
+    public int getRegistrering_id() {
+        return this.registrering_id;
     }
 
-    public void setRegistering_id(int registering_id) {
-        this.registering_id = registering_id;
+    public void setRegistrering_id(int registrering_id) {
+        this.registrering_id = registrering_id;
     }
 
     public int getFirma_id() {
@@ -63,11 +63,12 @@ public class registering {
     @Override
     public String toString() {
         return "{" +
-            " registering_id='" + getRegistering_id() + "'" +
+            " registering_id='" + getRegistrering_id() + "'" +
             ", firma_id='" + getFirma_id() + "'" +
             ", person_id='" + getPerson_id() + "'" +
             ", lokation_id='" + getLokation_id() + "'" +
             ", indtjekningstidspunkt='" + getIndtjekningstidspunkt() + "'" +
             "}";
     }
+
 }

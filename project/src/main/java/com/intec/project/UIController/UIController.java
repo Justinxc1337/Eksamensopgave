@@ -1,15 +1,19 @@
-package com.intec.project.UIcontroller;
+package com.intec.project.UIController;
 
+import com.intec.project.UseCaseController.UseCaseController;
+import com.intec.project.entities.registrering;
+import com.intec.project.entities.person;
+import com.intec.project.entities.lokation;
+import com.intec.project.entities.firma;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.intec.project.entities.person;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-
-public class UIcontroller {
+@RequestMapping("/templates")
+public class UIController {
 
     @RequestMapping("/")
 	public String index() {
@@ -27,7 +31,7 @@ public class UIcontroller {
 	}
 
     @GetMapping("/formularDansk")
-    public String formularDansk(){
+    public String formularDansk() {
         return "formularDansk";
     }
 
@@ -36,14 +40,6 @@ public class UIcontroller {
         return "formularEngelsk";
     }
 
-    @RequestMapping(value="/save", method=RequestMethod.POST)    
-    public ModelAndView save(@ModelAttribute person person) 
-    {    
-    ModelAndView modelAndView = new ModelAndView();    
-    modelAndView.setViewName("person");
-    modelAndView.addObject("person", person);      
-    return modelAndView;    
-}
 
     @GetMapping("/error")
     public String error(Model model) {
