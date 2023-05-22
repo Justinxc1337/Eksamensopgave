@@ -1,31 +1,73 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <title>Document</title>
 </head>
+<body>
 <nav class="navbar">
-    <a href="/css/index.css" class="nav-logo"> <img src="/Pictures/logo.png" class="logo"></a>
+    <a th:href="@{/css/index.css}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
-            <a href="/templates/dansk.html" class="nav-link">DANISH </a>
+            <a th:href="@{/templates/dansk.html}" class="nav-link">DANISH</a>
         </li>
         <li class="nav-item">
-            <a href="/templates/engelsk.html" class="nav-link">ENGLISH </a>
+            <a th:href="@{/templates/engelsk.html}" class="nav-link">ENGLISH</a>
         </li>
     </ul>
-    
 </nav>
 <div class="img_container">
-<img src="/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg" class="index_cover2 blackfade">
-<div class="centered2">
-<div >UDFYLD FORMULAR</div>  
+    <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover2 blackfade">
+    <div class="centered2">
+        <div>UDFYLD DIN REGISTRERING</div>
+    </div>
 </div>
+<div class="form-container">
+    <h2>UDFYLD DIN REGISTRERING</h2>
+    <form action="/save" method="post">
+        <div>
+            <label for="fnavn">Fornavn:</label>
+            <input type="text" id="fnavn" name="fnavn" required>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                <option value="Boston">Boston</option>
+                <option value="Haslev">Haslev</option>
+            </select>
+        </div>
+        <div>
+            <label for="company">Company:</label>
+            <select id="company" name="company" required>
+                <option value="DHL">DHL</option>
+                <option value="DSV">DSV</option>
+                <option value="GLS">GLS</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div th:if="${#strings.equals(company, 'Other')}">
+            <label for="otherCompany">Other Company:</label>
+            <input type="text" id="otherCompany" name="otherCompany" required>
+        </div>
+        <div>
+            <label for="licenseNumber">Driving License Number:</label>
+            <input type="text" id="licenseNumber" name="licenseNumber" required>
+        </div>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
 </div>
-<main>
-    
 </main>
 <footer class="footer">
     <div>
@@ -38,8 +80,10 @@
         <h1>Service</h1>
         <p class="ptext">E-mail: mh@intecsystem.dk</p>
         <p class="ptext">Tel.: +45 5672 0707</p>
-        <p class="ptext">Tel.: +45 5672 0707</p>
+        <p class="ptext">Mob.: +45 2096 6949</p>
         <p class="ptext">Fax: +45 5672 0709</p>
         <p class="ptext">CVR.no.: 27956882</p>
     </div>
 </footer>
+</body>
+</html>

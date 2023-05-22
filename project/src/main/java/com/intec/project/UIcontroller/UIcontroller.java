@@ -26,6 +26,16 @@ public class UIcontroller {
 		return "engelsk";
 	}
 
+    @GetMapping("/formularDansk")
+    public String formularDansk(){
+        return "formularDansk";
+    }
+
+    @GetMapping("/formularEngelsk")
+    public String formularEngelsk(){
+        return "formularEngelsk";
+    }
+
     @RequestMapping(value="/save", method=RequestMethod.POST)    
     public ModelAndView save(@ModelAttribute person person) 
     {    

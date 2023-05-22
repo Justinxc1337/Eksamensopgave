@@ -8,23 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar">
-    <a href="/css/index.css" class="nav-logo"> <img src="/Pictures/logo.png" class="logo"></a>
+<nav class="navbar" id="navbar">
+    <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
-            <a href="/templates/dansk.html" class="nav-link">DANSK </a>
+            <a th:href="@{/dansk}" class="nav-link">DANISH</a>
         </li>
         <li class="nav-item">
-            <a href="/templates/engelsk.html" class="nav-link">ENGELSK </a>
+            <a th:href="@{/engelsk}" class="nav-link">ENGLISH</a>
         </li>
     </ul>
 </nav>
 
 <div class="img_container">
-    <img src="/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg" class="index_cover blackfade">
+    <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
         <div>VELKOMMEN TIL INTEC SYSTEM APS</div>
-        <a th:href="@{/templates/formularDansk.html}"><button class="button">UDFYLD FORMULAR</button></a>
+        <a th:href="@{/templates/formularDansk.html}"><button class="button">UDFYLD DIN REGISTRERING</button></a>
     </div>
 </div>
 
