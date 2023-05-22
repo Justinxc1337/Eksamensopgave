@@ -1,5 +1,7 @@
 package com.intec.project.UIcontroller;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,24 +21,25 @@ public class UIcontroller {
 		return "dansk";
 	}
 
-    @GetMapping("/engesk")
+    @GetMapping("/engelsk")
 	public String engelsk() {
-		return "";
+		return "engelsk";
 	}
 
     @RequestMapping(value="/save", method=RequestMethod.POST)    
     public ModelAndView save(@ModelAttribute person person) 
     {    
     ModelAndView modelAndView = new ModelAndView();    
-    modelAndView.setViewName("person");        
+    modelAndView.setViewName("person");
     modelAndView.addObject("person", person);      
     return modelAndView;    
-}    
+}
 
-    @GetMapping("fejl")
-    public String fejl() {
-        return "indsæt fejl kode java application here:)";
+    @GetMapping("/error")
+    public String error(Model model) {
+        model.addAttribute("errorMessage", "Oops! Something went wrong.");
+        return "error";
     }
 
-    
+
 }

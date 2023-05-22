@@ -1,40 +1,37 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <title>Document / Actual Index, other is temp fake</title>
 </head>
-<nav class="navbar">
-    <a href="/templates/index.html" class="nav-logo"> <img src="/Pictures/logo.png" class="logo"></a>
+<body>
+<nav class="navbar" id="navbar">
+    <a th:href="@{/templates/index.html}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
-            <a href="/templates/dansk.html" class="nav-link">DANISH </a>
+            <a th:href="@{/templates/dansk.html}" class="nav-link">DANISH</a>
         </li>
         <li class="nav-item">
-            <a href="/templates/engelsk.html" class="nav-link">ENGLISH </a>
+            <a th:href="@{/templates/engelsk.html}" class="nav-link">ENGLISH</a>
         </li>
     </ul>
-    
 </nav>
 <div class="img_container">
-<img src="/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg" class="index_cover blackfade">
-<div class="centered">
-<div >WELCOME TO INTEC SYSTEM APS</div>
-<div style="  font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
-</div>
+    <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
+    <div class="centered">
+        <div>WELCOME TO INTEC SYSTEM APS</div>
+        <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
+    </div>
 </div>
 <div class="about">
-<div>
-    <h1 class="aboutus">ABOUT US</h1>
-    <p class="aboutus2">Intec System ApS is a value-added niche distributor of high-end IT products from leading manufacturers. In addition, we offer a number of logistics solutions to our partners. We undertake all tasks within dispatch and handling of your IT products. We offer storage solutions with pick/pack and consolidated shipping, where we pick up your products from different delivery points and are responsible for the total shipment to your customer.
-    </p>
-</div>
-<img class="truckimg" src="/Pictures/caleb-ruiter-EmEQ6kK_5P0-unsplash.jpg" alt="">
+    <div>
+        <h1 class="aboutus">ABOUT US</h1>
+        <p class="aboutus2">Intec System ApS is a value-added niche distributor of high-end IT products from leading manufacturers. In addition, we offer a number of logistics solutions to our partners. We undertake all tasks within dispatch and handling of your IT products. We offer storage solutions with pick/pack and consolidated shipping, where we pick up your products from different delivery points and are responsible for the total shipment to your customer.</p>
+    </div>
+    <img th:src="@{/Pictures/caleb-ruiter-EmEQ6kK_5P0-unsplash.jpg}" class="truckimg" alt="">
 </div>
 
 <footer class="footer">
@@ -48,9 +45,12 @@ font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
         <h1>Service</h1>
         <p class="ptext">E-mail: mh@intecsystem.dk</p>
         <p class="ptext">Tel.: +45 5672 0707</p>
-        <p class="ptext">Tel.: +45 5672 0707</p>
+        <p class="ptext">Mob.: +45 2096 6949</p>
         <p class="ptext">Fax: +45 5672 0709</p>
         <p class="ptext">CVR.no.: 27956882</p>
     </div>
 </footer>
+
+<script th:src="@{/js/index.js}"></script>
+</body>
 </html>
