@@ -18,22 +18,22 @@ public class UIcontroller {
 
     @GetMapping("/dansk")
 	public String dansk() {
-		return "redirect:/dansk";
+		return "redirect:/DA";
 	}
 
     @GetMapping("/engelsk")
 	public String engelsk() {
-		return "redirect:/engelsk";
+		return "redirect:/EN";
 	}
 
     @GetMapping("/formularDansk")
     public String formularDansk(){
-        return "redirect:/formularDansk";
+        return "redirect:/formularDA";
     }
 
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
-        return "redirect:/formularEngelsk";
+        return "redirect:/formularEN";
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)    
@@ -45,10 +45,16 @@ public class UIcontroller {
     return modelAndView;    
 }
 
-    @GetMapping("/error")
+    @GetMapping("/errorEN")
     public String error(Model model) {
         model.addAttribute("errorMessage", "Oops! Something went wrong.");
-        return "error";
+        return "errorEN";
+    }
+
+    @GetMapping("/errorDA")
+    public String error(Model model) {
+        model.addAttribute("Fejlbesked", "Oops! Noget gik galt.");
+        return "errorDA";
     }
 
 
