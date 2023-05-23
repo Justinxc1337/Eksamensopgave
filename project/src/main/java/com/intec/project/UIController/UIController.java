@@ -48,7 +48,7 @@ public class UIController {
     @GetMapping("/error")
     public String error(Model model) {
         model.addAttribute("errorMessage", "Oops! Something went wrong.");
-        return "errorEN";
+        return "error";
     }
 
 
