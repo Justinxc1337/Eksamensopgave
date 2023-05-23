@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar">
-    <a th:href="@{/css/index.css}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+    <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
             <a th:href="@{/templates/dansk.html}" class="nav-link">DANISH</a>
@@ -49,7 +50,7 @@
                 <option value="andet_firma">andet firma</option>
             </select>
         </div>
-        <div id="andet_firmafelt" style="display: none;">
+        <div th:if="${firma == 'andet_firma'}" id="andet_firmafelt">
             <label for="andet_firma">Andet Firma:</label>
             <input type="text" id="andet_firma" name="andet_firma">
         </div>
@@ -66,7 +67,6 @@
         </div>
     </form>
 </div>
-</main>
 <footer class="footer">
     <div>
         <h1>Intec System ApS</h1>

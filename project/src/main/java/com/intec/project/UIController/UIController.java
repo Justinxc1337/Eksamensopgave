@@ -1,4 +1,4 @@
-package com.intec.project.UIcontroller;
+package com.intec.project.UIController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ import com.intec.project.entities.person;
 
 @Controller
 
-public class UIcontroller {
+public class UIController {
 
     @RequestMapping("/")
 	public String index() {
@@ -18,22 +18,22 @@ public class UIcontroller {
 
     @GetMapping("/dansk")
 	public String dansk() {
-		return "redirect:/DA";
+		return "dansk";
 	}
 
     @GetMapping("/engelsk")
 	public String engelsk() {
-		return "redirect:/EN";
+		return "engelsk";
 	}
 
     @GetMapping("/formularDansk")
     public String formularDansk(){
-        return "redirect:/formularDA";
+        return "formularDansk";
     }
 
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
-        return "redirect:/formularEN";
+        return "formularEngelsk";
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)    
@@ -45,16 +45,10 @@ public class UIcontroller {
     return modelAndView;    
 }
 
-    @GetMapping("/errorEN")
+    @GetMapping("/error")
     public String error(Model model) {
         model.addAttribute("errorMessage", "Oops! Something went wrong.");
         return "errorEN";
-    }
-
-    @GetMapping("/errorDA")
-    public String error(Model model) {
-        model.addAttribute("Fejlbesked", "Oops! Noget gik galt.");
-        return "errorDA";
     }
 
 

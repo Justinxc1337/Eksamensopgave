@@ -13,13 +13,13 @@ import com.intec.project.entities.registrering;
 
 public class UseCaseController {
     
-    public interface Registering extends CRUDInterface<registrering> {
+    public class opretRegistering implements CRUDInterface<registrering> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
        
 
-
-        default void create(registrering entity) {
+        @Override
+        public void create(registrering entity) {
 
             int registrering_id = entity.getRegistrering_id();
             int firma_id = entity.getFirma_id();
@@ -50,13 +50,22 @@ public class UseCaseController {
                 }
             }
         }
+
+
+        @Override
+        public void delete(LocalDateTime indtjekningstidpunkt) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        }
     }
 
-    public interface Person extends CRUDInterface<person> {
+    public class opretPerson implements CRUDInterface<person> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
 
-         default void create(person entity) {
+
+        @Override
+        public void create(person entity) {
     
             String fnavn = entity.getFnavn();
             String enavn = entity.getEnavn();
@@ -85,14 +94,22 @@ public class UseCaseController {
                 }
             }
         }
+
+
+        @Override
+        public void delete(LocalDateTime indtjekningstidpunkt) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        }
     }
 
-    public interface Lokation extends CRUDInterface<lokation> {
+
+    public class opretLokation implements CRUDInterface<lokation> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
        
-
-        default void create(lokation entity) {
+        @Override
+        public void create(lokation entity) {
     
             String lokation_navn = entity.getLokation_navn();
     
@@ -115,14 +132,20 @@ public class UseCaseController {
                 }
             }
         }
+
+        @Override
+        public void delete(LocalDateTime indtjekningstidpunkt) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        }
     }
 
-    public interface Firma extends CRUDInterface<firma> {
+    public class opretFirma implements CRUDInterface<firma> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
     
-
-        default void create(firma entity) {
+        @Override
+        public void create(firma entity) {
     
             String firma_navn = entity.getFirma_navn();
     
@@ -170,13 +193,20 @@ public class UseCaseController {
                 }
             }
         }
+
+        @Override
+        public void delete(LocalDateTime indtjekningstidpunkt) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        }
     }
     
-    public interface GDPR extends CRUDInterface<registrering> {
+    public class GDPR implements CRUDInterface<registrering> {
 
         java.sql.Connection connection = DatabaseConnectionManager.getConnection();
 
-        default void delete(LocalDateTime indtjekningstidpunkt) {
+        @Override
+        public void delete(LocalDateTime indtjekningstidpunkt) {
             LocalDateTime fiveYearsAgo = LocalDateTime.now().minusYears(5);
             
             String query = "DELETE FROM `intecdatabase`.`registrering` WHERE `indtjekningstidspunkt` <= ?";
@@ -194,6 +224,14 @@ public class UseCaseController {
                 }
             }
         }
+
+        @Override
+        public void create(registrering entity) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'create'");
+        }
+
+        
     }
 
 }
