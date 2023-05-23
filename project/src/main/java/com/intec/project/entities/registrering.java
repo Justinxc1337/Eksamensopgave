@@ -10,7 +10,12 @@ public class registrering {
     private int lokation_id;
     private LocalDateTime indtjekningstidspunkt;
 
-    public registrering() {}
+    public registrering(int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
+        this.firma_id = firma_id;
+        this.person_id = person_id;
+        this.lokation_id = lokation_id;
+        this.indtjekningstidspunkt = indtjekningstidspunkt;
+    }
 
     public registrering(int registrering_id, int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
         this.registrering_id = registrering_id;

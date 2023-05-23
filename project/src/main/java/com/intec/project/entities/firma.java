@@ -12,6 +12,10 @@ public class firma {
         this.firma_navn = firma_navn;
     }
 
+    public firma(String firma_navn) {
+        this.firma_navn = firma_navn;
+    }
+
     public int getFirma_id() {
         return this.firma_id;
     }

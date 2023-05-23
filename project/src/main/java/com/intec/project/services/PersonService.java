@@ -1,27 +1,17 @@
 package com.intec.project.services;
 
+import com.intec.project.UseCaseController.PersonRepository;
+import com.intec.project.entities.person;
+import org.springframework.web.context.request.WebRequest;
+
 import java.time.LocalDateTime;
-
-import javax.persistence.Entity;
-
-import org.springframework.web.context.request.WebRequest;
-
-import com.intec.project.UseCaseController.UseCaseController;
-import com.intec.project.UseCaseController.UseCaseController.opretPerson;
-import com.intec.project.entities.person;
-import org.springframework.web.context.request.WebRequest;
-import com.intec.project.UseCaseController.UseCaseController;
-import com.intec.project.entities.person;
 
 public class PersonService{
 
-    private UseCaseController op = new UseCaseController();
+    PersonRepository pr = new PersonRepository();
 
     public void createNewPerson(WebRequest dataFromForm) {
-        person newPerson = getPerson(dataFromForm);
-        if (newPerson != null) {
-            op.create(newPerson);
-        }
+        pr.create(getPerson(dataFromForm));
     }
     
 

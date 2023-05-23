@@ -12,6 +12,10 @@ public class lokation {
         this.lokation_navn = lokation_navn;
     }
 
+    public lokation(String lokation_navn) {
+        this.lokation_navn = lokation_navn;
+    }
+
     public int getLokation_id() {
         return this.lokation_id;
     }
