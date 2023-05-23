@@ -7,18 +7,21 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <title>Intec System aps</title>
 </head>
+
 <body>
-    <nav class="navbar" id="navbar">
-        <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a th:href="@{/dansk}" class="nav-link">DANISH</a>
-            </li>
-            <li class="nav-item">
-                <a th:href="@{/engelsk}" class="nav-link">ENGLISH</a>
-            </li>
-        </ul>
-    </nav>
+
+<nav class="navbar" id="navbar">
+    <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a th:href="@{/dansk}" class="nav-link">DANISH</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/engelsk}" class="nav-link">ENGLISH</a>
+        </li>
+    </ul>
+</nav>
+
 <div class="img_container">
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
@@ -26,6 +29,7 @@
         <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
     </div>
 </div>
+
 <div class="about">
     <div>
         <h1 class="aboutus">ABOUT US</h1>
@@ -61,5 +65,6 @@
 </footer>
 
 <script th:src="@{/js/index.js}"></script>
+
 </body>
 </html>

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/dansk.css">
+    <link rel="stylesheet" th:href="@{/css/dansk.css}">
     <title>Intec System aps</title>
 </head>
+
 <body>
+
 <nav class="navbar" id="navbar">
     <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
@@ -24,34 +26,21 @@
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
         <div>VELKOMMEN TIL INTEC SYSTEM APS</div>
-        <a th:href="@{/templates/formularDansk.html}"><button class="button">UDFYLD DIN REGISTRERING</button></a>
+        <a th:href="@{/formularDansk.html}"><button class="button">UDFYLD DIN REGISTRERING</button></a>
     </div>
 </div>
 
 <div class="about">
     <div>
         <h1 class="aboutus">OM OS</h1>
-        <p class="aboutus2">Intec System ApS er en værditilvækst nichedistributør inden for high-end it-produkter fra førende producenter. Derudover tilbyder vi en række logistikløsninger til vores partnere. Vi påtager os alle opgaver indenfor ekspedition og håndtering af dine IT-produkter. Vi tilbyder lagerløsninger med pick/pack og konsolideret forsendelse, hvor vi henter dine produkter fra forskellige leveringssteder og står for den samlede forsendelse til din <kunde class=""></kunde>
+        <p class="aboutus2">Intec System ApS er en værditilvækst nichedistributør inden for high-end it-produkter fra førende producenter. Derudover tilbyder vi en række logistikløsninger til vores partnere. Vi påtager os alle opgaver indenfor ekspedition og håndtering af dine IT-produkter. Vi tilbyder lagerløsninger med pick/pack og konsolideret forsendelse, hvor vi henter dine produkter fra forskellige leveringssteder og står for den samlede forsendelse til din <span th:class="kunde"></span>
         </p>
     </div>
-    <img class="truckimg" src="/Pictures/caleb-ruiter-EmEQ6kK_5P0-unsplash.jpg" alt="">
+    <img class="truckimg" th:src="@{/Pictures/caleb-ruiter-EmEQ6kK_5P0-unsplash.jpg}" alt="">
 </div>
 
-<table>
-    <thead>
-    <tr>
-        <th>book id</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>12345</td>
-    </tr>
-    </tbody>
-</table>
-
 <footer class="footer">
-    <hr size="2" width="90%" color="black">  
+    <hr size="2" width="90%" color="black">
     <div>
         <h1>Intec System ApS</h1>
         <p class="ptext">Danmarksgade 6B</p>
@@ -78,9 +67,5 @@
 
 <script th:src="@{/js/dansk.js}"></script>
 
-<div class="footer">
-    <p></p>
-    <p></p>
-</div>
 </body>
 </html>

@@ -1,25 +1,24 @@
 package com.intec.project.UIController;
 
+
+import com.intec.project.UseCaseController.RegistreringRepository;
+import com.intec.project.services.RegistreringService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.context.request.WebRequest;
 
-import com.intec.project.entities.person;
 
 @Controller
-
 public class UIController {
+    private RegistreringService rs = new RegistreringService();
+
 
     @RequestMapping("/")
-	public String index() {
-		return "index";
-	}
+	public String index() {return "index";}
 
     @GetMapping("/dansk")
-	public String dansk() {
-		return "dansk";
-	}
+	public String dansk() {return "dansk";}
 
     @GetMapping("/engelsk")
 	public String engelsk() {
@@ -36,14 +35,11 @@ public class UIController {
         return "formularEngelsk";
     }
 
-    @RequestMapping(value="/save", method=RequestMethod.POST)    
-    public ModelAndView save(@ModelAttribute person person) 
-    {    
-    ModelAndView modelAndView = new ModelAndView();    
-    modelAndView.setViewName("person");
-    modelAndView.addObject("person", person);      
-    return modelAndView;    
-}
+    @PostMapping("save")
+    public String createNewRegistrering(WebRequest dataFromForm){
+        rs.createNewRegistrering(dataFromForm);
+        return "registreretDansk";
+    }
 
     @GetMapping("/error")
     public String error(Model model) {

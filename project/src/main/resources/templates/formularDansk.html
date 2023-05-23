@@ -5,27 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <title>Document</title>
+    <title>Intec System aps</title>
 </head>
+
 <body>
+
 <nav class="navbar">
     <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
-            <a th:href="@{/templates/dansk.html}" class="nav-link">DANISH</a>
+            <a th:href="@{/dansk.html}" class="nav-link">DANISH</a>
         </li>
         <li class="nav-item">
-            <a th:href="@{/templates/engelsk.html}" class="nav-link">ENGLISH</a>
+            <a th:href="@{/engelsk.html}" class="nav-link">ENGLISH</a>
         </li>
     </ul>
 </nav>
+
 <div class="img_container">
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover2 blackfade">
     <div class="centered2"></div>
 </div>
+
 <div class="form-container">
     <h2>UDFYLD DIN REGISTRERING</h2>
-    <form action="/save" method="post">
+    <form action="/save" method="post" th:action="@{/save}">
         <div>
             <label for="fnavn">Fornavn:</label>
             <input type="text" id="fnavn" name="fnavn" required>
@@ -42,15 +46,15 @@
             </select>
         </div>
         <div>
-            <label for="firma">Firma:</label>
-            <select id="firma" name="firma" required>
+            <label for="firma_navn">Firma:</label>
+            <select id="firma_navn" name="firma_navn" required>
                 <option value="DHL">DHL</option>
                 <option value="DSV">DSV</option>
                 <option value="GLS">GLS</option>
                 <option value="andet_firma">andet firma</option>
             </select>
         </div>
-        <div th:if="${firma == 'andet_firma'}" id="andet_firmafelt">
+        <div th:if="${firma_navn == 'andet_firma'}" id="andet_firmafelt">
             <label for="andet_firma">Andet Firma:</label>
             <input type="text" id="andet_firma" name="andet_firma">
         </div>
@@ -67,6 +71,7 @@
         </div>
     </form>
 </div>
+
 <footer class="footer">
     <div>
         <h1>Intec System ApS</h1>
@@ -82,6 +87,17 @@
         <p class="ptext">Fax: +45 5672 0709</p>
         <p class="ptext">CVR.no.: 27956882</p>
     </div>
+    <div>
+        <h1>Bankoplysninger</h1>
+        <p class="ptext">Sydbank A/S</p>
+        <p class="ptext">Torvet 6-8, 4600 Køge</p>
+        <p class="ptext">Reg. nr.: 6821 Konto nr.: 0001162117</p>
+        <p class="ptext">IBAN: DK4968210001162117</p>
+        <p class="ptext">BIC-kode SYBKDK22</p>
+    </div>
 </footer>
+
+<script th:src="@{/js/dansk.js}"></script>
+
 </body>
 </html>

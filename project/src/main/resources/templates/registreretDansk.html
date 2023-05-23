@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+  <title>Intec System aps</title>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+</nav>
+
+<div class="img_container">
+  <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
+  <div class="centered">
+    <div>VELKOMMEN TIL INTEC SYSTEM APS</div>
+    <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">DU ER NU REGISTRERET</div>
+  </div>
+</div>
+
+<div class="about">
+  <div>
+    <h1 class="aboutus">OM OS</h1>
+    <p class="aboutus2">Intec System ApS er en værditilvækst nichedistributør inden for high-end it-produkter fra førende producenter. Derudover tilbyder vi en række logistikløsninger til vores partnere. Vi påtager os alle opgaver indenfor ekspedition og håndtering af dine IT-produkter. Vi tilbyder lagerløsninger med pick/pack og konsolideret forsendelse, hvor vi henter dine produkter fra forskellige leveringssteder og står for den samlede forsendelse til din <span th:class="kunde"></span>
+    </p>
+  </div>
+  <img th:src="@{/Pictures/caleb-ruiter-EmEQ6kK_5P0-unsplash.jpg}" class="truckimg" alt="">
+</div>
+
+<footer class="footer">
+  <hr size="2" width="90%" color="black">
+  <div>
+    <h1>Intec System ApS</h1>
+    <p class="ptext">Danmarksgade 6B</p>
+    <p class="ptext">4690 Haslev</p>
+    <p class="ptext">Danmark</p>
+  </div>
+  <div>
+    <h1>Service</h1>
+    <p class="ptext">E-mail: mh@intecsystem.dk</p>
+    <p class="ptext">Tel.: +45 5672 0707</p>
+    <p class="ptext">Mob.: +45 2096 6949</p>
+    <p class="ptext">Fax: +45 5672 0709</p>
+    <p class="ptext">CVR.no.: 27956882</p>
+  </div>
+  <div>
+    <h1>Bankoplysninger</h1>
+    <p class="ptext">Sydbank A/S</p>
+    <p class="ptext">Torvet 6-8, 4600 Køge</p>
+    <p class="ptext">Reg. nr.: 6821 Konto nr.: 0001162117</p>
+    <p class="ptext">IBAN: DK4968210001162117</p>
+    <p class="ptext">BIC-kode SYBKDK22</p>
+  </div>
+</footer>
+
+<script th:src="@{/js/index.js}"></script>
+
+</body>
+</html>
