@@ -1,4 +1,4 @@
-package com.intec.project.UIcontroller;
+package com.intec.project.UIController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ import com.intec.project.entities.person;
 
 @Controller
 
-public class UIcontroller {
+public class UIController {
 
     @RequestMapping("/")
 	public String index() {
@@ -18,22 +18,22 @@ public class UIcontroller {
 
     @GetMapping("/dansk")
 	public String dansk() {
-		return "redirect:/dansk";
+		return "dansk";
 	}
 
     @GetMapping("/engelsk")
 	public String engelsk() {
-		return "redirect:/engelsk";
+		return "engelsk";
 	}
 
     @GetMapping("/formularDansk")
     public String formularDansk(){
-        return "redirect:/formularDansk";
+        return "formularDansk";
     }
 
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
-        return "redirect:/formularEngelsk";
+        return "formularEngelsk";
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)    

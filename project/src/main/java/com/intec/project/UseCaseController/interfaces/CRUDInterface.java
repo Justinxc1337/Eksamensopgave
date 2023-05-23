@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public interface CRUDInterface<T> {
 
-    void create(T entity);
+    public void create(T entity);
 
-    void delete(LocalDateTime indtjekningstidpunkt);
+    public void delete(LocalDateTime indtjekningstidpunkt);
 
 }
