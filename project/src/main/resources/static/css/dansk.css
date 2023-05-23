@@ -171,9 +171,9 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 150px;
+    gap: 50px;
     padding-bottom: 20px;
-    background-color: #DDDDDD;
+    background-color: #abb8c3;
 }
 
 .ptext{
