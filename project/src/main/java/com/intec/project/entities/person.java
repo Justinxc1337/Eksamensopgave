@@ -21,6 +21,13 @@ public class person {
     this.fødselsdato = fødselsdato;
     }
 
+    public person(String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
+        this.fnavn = fnavn;
+        this.enavn = enavn;
+        this.kørerkort_nummer = kørerkort_nummer;
+        this.fødselsdato = fødselsdato;
+    }
+
     public int getPerson_id() {
         return this.person_id;
     }

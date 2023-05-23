@@ -1,8 +1,12 @@
 package com.intec.project.UseCaseController;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import com.intec.project.DBController.DatabaseConnectionManager;
 import com.intec.project.UseCaseController.interfaces.CRUDInterface;
@@ -19,7 +23,7 @@ public class UseCaseController {
        
 
         @Override
-        public void create(registrering entity) {
+        public boolean create(registrering entity) {
 
             int registrering_id = entity.getRegistrering_id();
             int firma_id = entity.getFirma_id();
@@ -38,17 +42,16 @@ public class UseCaseController {
                 stmt.setInt(4, lokation_id);
                 stmt.setObject(5, indtjekningstidspunkt);
 
-                stmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-
                 try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    PreparedStatement stmt1 = connection.prepareStatement(query);
+        
+                    stmt1.executeUpdate();
+                    return true;
                 }
-            }
+                catch (SQLException e){
+                    e.printStackTrace();
+                    return false;
+                }
         }
 
 
@@ -60,47 +63,56 @@ public class UseCaseController {
     }
 
     public class opretPerson implements CRUDInterface<person> {
-
-        java.sql.Connection connection = DatabaseConnectionManager.getConnection();
-
-
-        @Override
-        public void create(person entity) {
+        
+        private Connection connection = DatabaseConnectionManager.getConnection();
     
+        @Override
+        public boolean create(person entity) {
             String fnavn = entity.getFnavn();
             String enavn = entity.getEnavn();
             String kørerkort_nummer = entity.getKørerkort_nummer();
             LocalDateTime fødselsdato = entity.getFødselsdato();
     
-            String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) " + 
-            " VALUES ('"+fnavn+"', '"+enavn+"', '"+kørerkort_nummer+"', '"+fødselsdato+"');";
-            
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query);
+            String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) "
+                    + "VALUES (?, ?, ?, ?)";
+    
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
                 stmt.setString(1, fnavn);
                 stmt.setString(2, enavn);
                 stmt.setString(3, kørerkort_nummer);
                 stmt.setObject(4, fødselsdato);
     
                 stmt.executeUpdate();
+                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                return false;
             }
         }
-
+    
+        @Override
+        public ArrayList<person> getAll() {
+            ArrayList<person> persons = new ArrayList<>();
+            try {
+                Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                ResultSet rs = stmt.executeQuery("SELECT * FROM person AS e WHERE e.person_id IS NOT NULL");
+    
+                while (rs.next()) {
+                    int person_id = rs.getInt("person_id");
+                    String fnavn = rs.getString("fnavn");
+                    String enavn = rs.getString("enavn");
+                    String kørerkort_nummer = rs.getString("kørerkort_nummer");
+                    LocalDateTime fødselsdato = LocalDateTime.parse(rs.getString("fødselsdato"));
+                    persons.add(new person(person_id, fnavn, enavn, kørerkort_nummer, fødselsdato));
+                }
+            }
 
         @Override
-        public void delete(LocalDateTime indtjekningstidpunkt) {
+        public void delete(LocalDateTime indtjekningstidspunkt) {
             
             throw new UnsupportedOperationException("Unimplemented method 'delete'");
         }
+
     }
 
 
@@ -231,7 +243,14 @@ public class UseCaseController {
             throw new UnsupportedOperationException("Unimplemented method 'create'");
         }
 
+        @Override
+        public ArrayList<registrering> getAll() {
+        
+            throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        }
+
         
     }
+
 
 }

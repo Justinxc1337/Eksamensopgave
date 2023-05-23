@@ -1,11 +1,14 @@
 package com.intec.project.UseCaseController.interfaces;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public interface CRUDInterface<T> {
 
-    public void create(T entity);
+    public boolean create(T entity);
 
-    public void delete(LocalDateTime indtjekningstidpunkt);
+    public ArrayList<T> getAll();
+
+    public void delete(LocalDateTime indtjekningstidspunkt);
 
 }
