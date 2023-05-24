@@ -26,7 +26,9 @@
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
         <div>VELKOMMEN TIL INTEC SYSTEM APS</div>
-        <a th:href="@{/formularDansk.html}"><button class="button">UDFYLD DIN REGISTRERING</button></a>
+        <div>
+            <button type="submit" onclick="redirectToFormularDansk()">UDFYLD DIN REGISTRERING</button>
+        </div>
     </div>
 </div>
 
@@ -66,6 +68,10 @@
 </footer>
 
 <script th:src="@{/js/dansk.js}"></script>
-
+<script>
+    function redirectToFormularDansk() {
+        window.location.href = '/formularDansk';
+    }
+</script>
 </body>
 </html>

@@ -1,19 +1,16 @@
 package com.intec.project.UseCaseController;
 
-import com.intec.project.DBController.DatabaseConnectionManager;
 import com.intec.project.UseCaseController.interfaces.CRUDInterface;
 import com.intec.project.entities.lokation;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class LokationRepository implements CRUDInterface<lokation> {
-
-    java.sql.Connection connection = DatabaseConnectionManager.getConnection();
 
     @Override
     public boolean create(lokation entity) {
@@ -21,17 +18,22 @@ public class LokationRepository implements CRUDInterface<lokation> {
         String lokation_navn = entity.getLokation_navn();
 
         String query = "INSERT INTO `intecdatabase`.`lokation` (`lokation_navn`) " +
-                " VALUES ('" + lokation_navn + "');";
+                "VALUES (?);";
 
         try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, lokation_navn);
 
-            stmt.executeUpdate();
-            return true;
+            try {
+                stmt.executeUpdate();
+                return true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+            throw new RuntimeException(e);
         }
     }
 
@@ -39,8 +41,10 @@ public class LokationRepository implements CRUDInterface<lokation> {
     public ArrayList<lokation> getAll() {
         ArrayList<lokation> lokation = new ArrayList<>();
         try {
-            Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM lokation AS e WHERE e.lokation_id IS NOT NULL");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
+            String query = "SELECT * FROM lokation";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
                 int lokation_id = rs.getInt("lokation_id");
