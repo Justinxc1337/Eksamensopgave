@@ -29,16 +29,19 @@ public class UIController {
     public String formularDansk(){
         return "formularDansk";
     }
+
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
         return "formularEngelsk";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/create")
     public String createNewRegistrering(WebRequest dataFromForm){
         rs.createNewRegistrering(dataFromForm);
         return "registreretDansk";
     }
+    @GetMapping("/registreretDansk")
+    public String registreretDansk(){return "registreretDansk";}
 
     @GetMapping("/error")
     public String error(Model model) {

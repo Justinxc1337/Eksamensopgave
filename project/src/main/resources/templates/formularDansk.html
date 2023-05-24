@@ -22,30 +22,25 @@
     </ul>
 </nav>
 
-<div class="img_container">
-    <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover2 blackfade">
-    <div class="centered2"></div>
-</div>
-
 <div class="form-container">
     <h2>UDFYLD DIN REGISTRERING</h2>
-    <form action="/save" method="post" th:action="@{/save}">
-        <div>
+    <form id="registrationForm" action="/create" method="post" th:action="@{/create}">
+        <div class="form-group">
             <label for="fnavn">Fornavn:</label>
             <input type="text" id="fnavn" name="fnavn" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="enavn">Efternavn:</label>
             <input type="text" id="enavn" name="enavn" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="lokation">Lokation:</label>
             <select id="lokation" name="lokation" required>
                 <option value="Boston">Boston</option>
                 <option value="Haslev">Haslev</option>
             </select>
         </div>
-        <div>
+        <div class="form-group">
             <label for="firma_navn">Firma:</label>
             <select id="firma_navn" name="firma_navn" required>
                 <option value="DHL">DHL</option>
@@ -54,20 +49,20 @@
                 <option value="andet_firma">andet firma</option>
             </select>
         </div>
-        <div th:if="${firma_navn == 'andet_firma'}" id="andet_firmafelt">
+        <div id="andet_firmafelt" class="form-group">
             <label for="andet_firma">Andet Firma:</label>
             <input type="text" id="andet_firma" name="andet_firma">
         </div>
-        <div>
+        <div class="form-group">
             <label for="kørerkort_nummer">Kørerkort nummer:</label>
             <input type="text" id="kørerkort_nummer" name="kørerkort_nummer" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="fødselsdato">Fødselsdato:</label>
             <input type="date" id="fødselsdato" name="fødselsdato" required>
         </div>
-        <div>
-            <button type="submit" onclick="redirectToRegistreretDansk()">INDSEND</button>
+        <div class="form-group">
+            <button type="button" onclick="registerDateTime()" class="submit-button">INDSEND</button>
         </div>
     </form>
 </div>
@@ -96,12 +91,41 @@
         <p class="ptext">BIC-kode SYBKDK22</p>
     </div>
 </footer>
-
-<script th:src="@{/js/dandsk.js}"></script>
 <script>
+    window.onscroll = function() { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+<script>
+    function registerDateTime() {
+        var currentDate = new Date().toISOString();
+        document.getElementById('indtjekningstidspunkt').value = currentDate;
+        redirectToRegistreretDansk();
+    }
     function redirectToRegistreretDansk() {
         window.location.href = '/registreretDansk';
     }
+</script>
+<script>
+    const firmaNavnSelect = document.getElementById('firma_navn');
+    const andetFirmaFelt = document.getElementById('andet_firmafelt');
+
+    firmaNavnSelect.addEventListener('change', function() {
+        if (firmaNavnSelect.value === 'andet_firma') {
+            andetFirmaFelt.style.display = 'block';
+        } else {
+            andetFirmaFelt.style.display = 'none';
+        }
+    })
 </script>
 </body>
 </html>

@@ -11,6 +11,8 @@ import com.intec.project.entities.registrering;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.Objects;
 
 public class RegistreringService {
 
@@ -20,29 +22,23 @@ public class RegistreringService {
     FirmaRepository fr = new FirmaRepository();
 
     public void createNewRegistrering(WebRequest dataFromForm){
-        rr.create(getRegistrering(dataFromForm));
-        pr.create(getPerson(dataFromForm));
-        lr.create(getLokation(dataFromForm));
-        fr.create(getFirma(dataFromForm));
+        rr.create(Objects.requireNonNull(getRegistrering(dataFromForm)));
+        pr.create(Objects.requireNonNull(getPerson(dataFromForm)));
+        lr.create(Objects.requireNonNull(getLokation(dataFromForm)));
+        fr.create(Objects.requireNonNull(getFirma(dataFromForm)));
     }
 
-    private registrering getRegistrering(WebRequest dataFromForm){
-        try{
-            int firma_id = Integer.parseInt(dataFromForm.getParameter("firma_id"));
-            int person_id = Integer.parseInt(dataFromForm.getParameter("person_id"));
-            int lokation_id = Integer.parseInt(dataFromForm.getParameter("lokation_id"));
-            LocalDateTime indtjekningstidspunkt = LocalDateTime.parse(dataFromForm.getParameter("indtjekningstidspunkt"));
+    private registrering getRegistrering(WebRequest dataFromForm) {
+        try {
+            LocalDateTime indtjekningstidspunkt = getCurrentDateTime();
 
-            if(dataFromForm.getParameter("registrering_id") != null){
-                int registrering_id = Integer.parseInt(dataFromForm.getParameter("registrering_id"));
-                registrering currentRegistrering = new registrering(registrering_id, firma_id, person_id, lokation_id, indtjekningstidspunkt);
+            if (indtjekningstidspunkt != null) {
+                registrering currentRegistrering = new registrering(indtjekningstidspunkt);
                 return currentRegistrering;
             }
-            registrering currentRegistrering = new registrering(firma_id, person_id, lokation_id, indtjekningstidspunkt);
-            return currentRegistrering;
 
-        }
-        catch (Exception e){
+            System.out.println("registrering not created");
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("registrering not created");
         }
@@ -50,20 +46,40 @@ public class RegistreringService {
         return null;
     }
 
-    private firma getFirma(WebRequest dataFromForm){
-        try{
+    public registrering create(WebRequest dataFromForm) {
+        registrering entity = getRegistrering(dataFromForm);
+
+        if (entity != null) {
+            RegistreringRepository repository = new RegistreringRepository();
+            repository.create(entity);
+            System.out.println("registrering created");
+        } else {
+            System.out.println("Failed to create registrering");
+        }
+
+        return entity;
+    }
+    private LocalDateTime parseLocalDateTime(String parameter) {
+        try {
+            return LocalDateTime.parse(parameter);
+        } catch (DateTimeParseException e) {
+            return null;
+        }
+    }
+    private LocalDateTime getCurrentDateTime() {
+        return LocalDateTime.now();
+    }
+
+    private firma getFirma(WebRequest dataFromForm) {
+        try {
             String firma_navn = dataFromForm.getParameter("firma_navn");
 
-            if(dataFromForm.getParameter("firma_id") != null){
-                int firma_id = Integer.parseInt(dataFromForm.getParameter("firma_id"));
-                firma currentFirma = new firma(firma_id, firma_navn);
-                return currentFirma;
+            if (firma_navn != null) {
+                return new firma(firma_navn);
             }
-            firma currentFirma = new firma(firma_navn);
-            return currentFirma;
 
-        }
-        catch (Exception e){
+            System.out.println("firma not created");
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("firma not created");
         }
@@ -71,23 +87,19 @@ public class RegistreringService {
         return null;
     }
 
-    private person getPerson(WebRequest dataFromForm){
-        try{
+    private person getPerson(WebRequest dataFromForm) {
+        try {
             String fnavn = dataFromForm.getParameter("fnavn");
             String enavn = dataFromForm.getParameter("enavn");
             String kørerkort_nummer = dataFromForm.getParameter("kørerkort_nummer");
             LocalDateTime fødselsdato = LocalDateTime.parse(dataFromForm.getParameter("fødselsdato"));
 
-            if(dataFromForm.getParameter("person_id") != null){
-                int person_id = Integer.parseInt(dataFromForm.getParameter("person_id"));
-                person currentPerson = new person(person_id, fnavn, enavn, kørerkort_nummer, fødselsdato);
-                return currentPerson;
+            if (fnavn != null && enavn != null && kørerkort_nummer != null && fødselsdato != null) {
+                return new person(fnavn, enavn, kørerkort_nummer, fødselsdato);
             }
-            person currentPerson = new person(fnavn, enavn, kørerkort_nummer, fødselsdato);
-            return currentPerson;
 
-        }
-        catch (Exception e){
+            System.out.println("person not created");
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("person not created");
         }
@@ -95,20 +107,16 @@ public class RegistreringService {
         return null;
     }
 
-    private lokation getLokation(WebRequest dataFromForm){
-        try{
+    private lokation getLokation(WebRequest dataFromForm) {
+        try {
             String lokation_navn = dataFromForm.getParameter("lokation_navn");
 
-            if(dataFromForm.getParameter("lokation_id") != null){
-                int lokation_id = Integer.parseInt(dataFromForm.getParameter("lokation_id"));
-                lokation currentLokation = new lokation(lokation_id, lokation_navn);
-                return currentLokation;
+            if (lokation_navn != null) {
+                return new lokation(lokation_navn);
             }
-            lokation currentLokation = new lokation(lokation_navn);
-            return currentLokation;
 
-        }
-        catch (Exception e){
+            System.out.println("lokation not created");
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("lokation not created");
         }

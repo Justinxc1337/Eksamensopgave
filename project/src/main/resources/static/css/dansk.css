@@ -89,20 +89,6 @@ a {
     z-index: 0;
 }
 
-.custom-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.custom-button:hover {
-    background-color: #45a049;
-}
-
 .centered {
     color: white;
     position: absolute;
@@ -196,7 +182,7 @@ a {
 }
 
 .button {
-    background-color: #142984; /* Green */
+    background-color: #142984;
     border: none;
     color: white;
     padding: 15px 32px;

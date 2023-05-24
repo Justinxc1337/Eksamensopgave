@@ -16,23 +16,15 @@ public class RegistreringRepository implements CRUDInterface<registrering> {
 
     @Override
     public boolean create(registrering entity) {
-        int registrering_id = entity.getRegistrering_id();
-        int firma_id = entity.getFirma_id();
-        int person_id = entity.getPerson_id();
-        int lokation_id = entity.getLokation_id();
         LocalDateTime indtjekningstidspunkt = entity.getIndtjekningstidspunkt();
 
-        String query = "INSERT INTO `intecdatabase`.`registrering` (`registrering_id`, `firma_id`, `person_id`, `lokation_id`, `indtjekningstidspunkt`) " +
-                "VALUES (?, ?, ?, ?, ?);";
+        String query = "INSERT INTO `intecdatabase`.`registrering` (`indtjekningstidspunkt`) " +
+                "VALUES (?);";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
             PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setInt(1, registrering_id);
-            stmt.setInt(2, firma_id);
-            stmt.setInt(3, person_id);
-            stmt.setInt(4, lokation_id);
-            stmt.setObject(5, indtjekningstidspunkt);
+            stmt.setObject(1, indtjekningstidspunkt);
 
             try {
                 stmt.executeUpdate();

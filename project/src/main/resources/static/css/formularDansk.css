@@ -37,7 +37,7 @@ a {
     padding: 1rem 1.5rem;
     overflow: hidden;
     background-color: #121212;
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -82,13 +82,6 @@ a {
     background-color: black;
 }
 
-.img_container{
-    position: relative;
-    text-align: center;
-    background-color: black;
-    z-index: 0;
-}
-
 .centered {
     color: white;
     position: absolute;
@@ -126,43 +119,8 @@ a {
     padding-top: 60px;
 }
 
-.truckimg{
-    height: 500px;
-    width: auto;
-    object-fit: cover;
-}
-
-.aboutus{
-    padding-left: 20px;
-}
-.aboutus2{
-    display: flex;
-    padding-top: 10px;
-    max-width: 200px;
-    margin-left: 10%;
-    font-size: small;
-}
-
-.about{
-    padding-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    box-align: start;
-    align-content: space-between;
-    box-pack: center;
-    gap: 150px;
-    justify-content: center;
-    padding-bottom: 100px;
-}
-
 .element {
     width: 100%; /* Set width to 100% by default */
-}
-
-@media (max-width: 700px) {
-    .truckimg {
-        width: 100%; /* Set width to 100% when viewport is less than or equal to 200px */
-    }
 }
 
 .footer{
@@ -182,7 +140,7 @@ a {
 }
 
 .button {
-    background-color: #142984; /* Green */
+    background-color: #142984;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -203,4 +161,44 @@ a {
     right: 0px;
     opacity: 0.4;
     background-color: black;
+}
+
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #142984;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #1c35a6;
 }
