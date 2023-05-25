@@ -12,7 +12,7 @@ import com.intec.project.entities.registrering;
 
 public class GDPR implements CRUDInterface<registrering> {
     @Override
-    public void delete(LocalDateTime indtjekningstidpunkt) {
+    public void delete(LocalDateTime indtjekningstidspunkt) {
         LocalDateTime fiveYearsAgo = LocalDateTime.now().minusYears(5);
 
         String query = "DELETE FROM `intecdatabase`.`registrering` WHERE `indtjekningstidspunkt` <= ?";

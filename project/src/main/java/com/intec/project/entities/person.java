@@ -1,5 +1,6 @@
 package com.intec.project.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -9,11 +10,11 @@ public class person {
     private String fnavn;
     private String enavn;
     private String kørerkort_nummer;
-    private LocalDateTime fødselsdato;
+    private LocalDate fødselsdato;
 
     public person(){}
 
-    public person(int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
+    public person(int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDate fødselsdato) {
     this.person_id = person_id;
     this.fnavn = fnavn;
     this.enavn = enavn;
@@ -21,7 +22,7 @@ public class person {
     this.fødselsdato = fødselsdato;
     }
 
-    public person(String fnavn, String enavn, String kørerkort_nummer, LocalDateTime fødselsdato) {
+    public person(String fnavn, String enavn, String kørerkort_nummer, LocalDate fødselsdato) {
         this.fnavn = fnavn;
         this.enavn = enavn;
         this.kørerkort_nummer = kørerkort_nummer;
@@ -60,11 +61,11 @@ public class person {
         this.kørerkort_nummer = kørerkort_nummer;
     }
 
-    public LocalDateTime getFødselsdato() {
+    public LocalDate getFødselsdato() {
         return this.fødselsdato;
     }
 
-    public void setFødselsdato(LocalDateTime fødselsdato) {
+    public void setFødselsdato(LocalDate fødselsdato) {
         this.fødselsdato = fødselsdato;
     }
 

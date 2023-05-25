@@ -5,6 +5,7 @@ import com.intec.project.entities.person;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.sql.Connection;
@@ -17,7 +18,7 @@ public class PersonRepository implements CRUDInterface<person> {
         String fnavn = entity.getFnavn();
         String enavn = entity.getEnavn();
         String kørerkort_nummer = entity.getKørerkort_nummer();
-        LocalDateTime fødselsdato = entity.getFødselsdato();
+        LocalDate fødselsdato = entity.getFødselsdato();
 
         String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) "
                 + "VALUES (?, ?, ?, ?)";
@@ -57,7 +58,7 @@ public class PersonRepository implements CRUDInterface<person> {
                 String fnavn = rs.getString("fnavn");
                 String enavn = rs.getString("enavn");
                 String kørerkort_nummer = rs.getString("kørerkort_nummer");
-                LocalDateTime fødselsdato = rs.getObject("fødselsdato", LocalDateTime.class);
+                LocalDate fødselsdato = rs.getObject("fødselsdato", LocalDate.class);
                 person.add(new person(person_id, fnavn, enavn, kørerkort_nummer, fødselsdato));
             }
 

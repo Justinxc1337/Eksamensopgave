@@ -14,6 +14,9 @@ public class LokationRepository implements CRUDInterface<lokation> {
 
     @Override
     public boolean create(lokation entity) {
+        if (entity == null || entity.getLokation_navn() == null) {
+            return false;
+        }
 
         String lokation_navn = entity.getLokation_navn();
 
@@ -57,7 +60,7 @@ public class LokationRepository implements CRUDInterface<lokation> {
         return lokation;
     }
     @Override
-    public void delete(LocalDateTime indtjekningstidpunkt) {
+    public void delete(LocalDateTime indtjekningstidspunkt) {
 
     }
 }
