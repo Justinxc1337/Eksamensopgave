@@ -164,15 +164,12 @@ a {
 }
 
 .form-container {
-    display: grid;
     width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     z-index: 1;
-    padding-bottom: 20px;
-    padding-top: 40px;
 }
 
 .form-group {
