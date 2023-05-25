@@ -27,11 +27,11 @@
     <form id="registrationForm" action="/create" method="post" th:action="@{/create}">
         <div class="form-group">
             <label for="fnavn">Fornavn:</label>
-            <input type="text" id="fnavn" name="fnavn" required>
+            <input type="text" id="fnavn" name="fnavn" placeholder="Fornavn" required>
         </div>
         <div class="form-group">
             <label for="enavn">Efternavn:</label>
-            <input type="text" id="enavn" name="enavn" required>
+            <input type="text" id="enavn" name="enavn" placeholder="Efternavn" required>
         </div>
         <div class="form-group">
             <label for="lokation">Lokation:</label>
@@ -51,15 +51,15 @@
         </div>
         <div id="andet_firmafelt" class="form-group">
             <label for="andet_firma">Andet Firma:</label>
-            <input type="text" id="andet_firma" name="andet_firma">
+            <input type="text" id="andet_firma" name="andet_firma" placeholder="Navn på firma">
         </div>
         <div class="form-group">
             <label for="kørerkort_nummer">Kørerkort nummer:</label>
-            <input type="text" id="kørerkort_nummer" name="kørerkort_nummer" required>
+            <input type="text" id="kørerkort_nummer" name="kørerkort_nummer" placeholder="Kørekort nummer" required>
         </div>
         <div class="form-group">
             <label for="fødselsdato">Fødselsdato:</label>
-            <input type="date" id="fødselsdato" name="fødselsdato" required>
+            <input type="date" id="fødselsdato" name="fødselsdato"  required>
         </div>
         <div class="form-group">
             <button type="button" onclick="registerDateTime()" class="submit-button">INDSEND</button>
@@ -68,6 +68,7 @@
 </div>
 
 <footer class="footer">
+<hr size="2" width="90%" color="black"> 
     <div>
         <h1>Intec System ApS</h1>
         <p class="ptext">Danmarksgade 6B</p>
