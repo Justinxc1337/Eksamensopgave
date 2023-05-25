@@ -202,3 +202,29 @@ input, select {
 .submit-button:hover {
     background-color: #1c35a6;
 }
+
+.linkudseende {
+    text-decoration: none;
+    text-decoration-color: black;
+    color: black;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 1.2rem;
+}
+
+.linkudseende:hover {
+    color: blue;
+    background-color: transparent;
+}
+
+.ptext{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 1.2rem;
+}

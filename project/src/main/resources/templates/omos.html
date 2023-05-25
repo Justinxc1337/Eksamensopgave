@@ -15,10 +15,16 @@
     <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
     <ul class="nav-menu">
         <li class="nav-item">
-            <a th:href="@{/dansk}" class="nav-link">DANISH</a>
+            <a th:href="@{/index}" class="nav-link">Forside</a>
         </li>
         <li class="nav-item">
-            <a th:href="@{/engelsk}" class="nav-link">ENGLISH</a>
+            <a th:href="@{/kontaktos}" class="nav-link">Kontakt os</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/privatpolitik}" class="nav-link">privatpolitik</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/??}" class="nav-link">We Live To Die</a>
         </li>
     </ul>
 </nav>
@@ -27,7 +33,7 @@
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
         <div>WELCOME TO INTEC SYSTEM APS</div>
-        <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
+        <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;"></div>
     </div>
 </div>
 
@@ -38,7 +44,7 @@
 <div class="container">
     <div class="card">
         <img th:src="@{/Pictures/wonder.png}" alt="Hardstuck" class="card__image">
-      <p class="card__name"> CEO <br> Alexander Friedrich Wentzel</p>
+      <p class="card__name"> Direktør <br> Alexander Friedrich Wentzel</p>
       <div class="grid-container">
   
         
@@ -49,7 +55,7 @@
     </div>
     <div class="card">
         <img th:src="@{/Pictures/Hechmann.png}" alt="Blækmann" class="card__image">
-      <p class="card__name"> CFO <br> Casper-Emil Hechmann</p>
+      <p class="card__name"> Økonomichef <br> Casper-Emil Hechmann</p>
       <div class="grid-container">
   
         
@@ -68,12 +74,8 @@
     <div class="card">
       <img th:src="@{/Pictures/joller.png}" alt="Joller" class="card__image">
       <p class="card__name"> Chef for Marketing  <br> Justin ander Chardonnay </p>
-      <div class="grid-container">
-
-        
-  
-      </div>
       <button class="btn draw-border">Send besked</button>
+    </div>
     </div>
 
 
@@ -106,9 +108,11 @@
     </div>
     <div>
         <h1>Information</h1>
+        <p class="linkudseende">
         <a th:href="@{/omos}" class="linkudseende">Om os</a>
         <a th:href="@{/kontaktos}" class="linkudseende">Kontakt os</a>
         <a th:href="@{/privatpolitik}" class="linkudseende">Privatpolitik</a>
+        </p>
     </div>
 </footer>
 
