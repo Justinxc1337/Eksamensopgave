@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/formularDansk.css}">
+    <script type="text/javascript" th:src="@{/js/formularDansk.js}"></script>
     <title>Intec System aps</title>
 </head>
 
@@ -27,7 +28,7 @@
         <span class="opret-registrering-form-header">OPRET DIN REGISTRERING</span>
         <form method="POST" action="create-new-registrering" class="input-field-container">
             <input type="text" placeholder="Fornavn" class="input-field" name="fnavn" required>
-            <input type="text" placeholder="Efernavn" class="input-field" name="enavn" required>
+            <input type="text" placeholder="Efternavn" class="input-field" name="enavn" required>
 
             <div class="lokation-objects">
                 <select name="lokation_navn" class="drop-down">
@@ -46,7 +47,7 @@
             </div>
 
             <input id="andet_firmafelt" type="text" placeholder="Andet Firma" class="input-field" name="firma_navn">
-            <input type="text" placeholder="Kørerkort nummer" class="input-field" name="kørerkort_nummer" required>
+            <input type="text" placeholder="Kørekort nummer" class="input-field" name="kørerkort_nummer" required>
             <input type="date" placeholder="Fødselsdato" class="input-field" name="fødselsdato" required>
 
             <input type="submit" class="submit-button" value="INDSEND">
@@ -78,32 +79,13 @@
         <p class="ptext">IBAN: DK4968210001162117</p>
         <p class="ptext">BIC-kode SYBKDK22</p>
     </div>
+    <div>
+        <h1>Information</h1>
+        <a th:href="@{/omos.html}" class="ptext">Om os</a>
+        <a th:href="@{/kontaktos.html}" class="ptext">Kontakt os</a>
+        <a th:href="@{/privatpolitik.html}" class="ptext">Privatpolitik</a>
+    </div>
 </footer>
-<script>
-    const firmaNavnSelect = document.querySelector('.drop-down');
-    const andetFirmaFelt = document.getElementById('andet_firmafelt');
 
-    firmaNavnSelect.addEventListener('change', function() {
-        if (firmaNavnSelect.value === 'andet firma') {
-            andetFirmaFelt.style.display = 'block';
-        } else {
-            andetFirmaFelt.style.display = 'none';
-        }
-    })
-</script>
-<script>
-    window.onscroll = function() { myFunction() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky");
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-</script>
 </body>
 </html>

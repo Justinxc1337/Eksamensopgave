@@ -23,6 +23,21 @@ public class UIController {
 		return "engelsk";
 	}
 
+    @GetMapping("/omos")
+    public String omos() {
+        return "omos";
+    }
+
+    @GetMapping("/kontaktos")
+    public String kontaktos() {
+        return "kontaktos";
+    }
+
+    @GetMapping("/privatpolitik")
+    public String privatpolitik() {
+        return "privatpolitik";
+    }
+
     @GetMapping("/formularDansk")
     public String formularDansk(){return "formularDansk";}
 
