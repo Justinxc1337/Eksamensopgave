@@ -3,41 +3,18 @@ package com.intec.project.UseCaseController;
 import com.intec.project.UseCaseController.interfaces.CRUDInterface;
 import com.intec.project.entities.registrering;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 
 public class RegistreringRepository implements CRUDInterface<registrering> {
 
+
     @Override
     public boolean create(registrering entity) {
-        LocalDateTime indtjekningstidspunkt = entity.getIndtjekningstidspunkt();
-
-        String query = "INSERT INTO `intecdatabase`.`registrering` (`indtjekningstidspunkt`) " +
-                "VALUES (?);";
-
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setObject(1, indtjekningstidspunkt);
-
-            try {
-                stmt.executeUpdate();
-                return true;
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return false;
     }
-
 
     @Override
     public ArrayList<registrering> getAll() {

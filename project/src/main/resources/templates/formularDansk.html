@@ -22,50 +22,37 @@
     </ul>
 </nav>
 
-<div class="form-container">
-    <h2>UDFYLD DIN REGISTRERING</h2>
-    <form id="registrationForm" action="/create" method="post" th:action="@{/create}">
-        <div class="form-group">
-            <label for="fnavn">Fornavn:</label>
-            <input type="text" id="fnavn" name="fnavn" required>
-        </div>
-        <div class="form-group">
-            <label for="enavn">Efternavn:</label>
-            <input type="text" id="enavn" name="enavn" required>
-        </div>
-        <div class="form-group">
-            <label for="lokation">Lokation:</label>
-            <select id="lokation" name="lokation" required>
-                <option value="Boston">Boston</option>
-                <option value="Haslev">Haslev</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="firma_navn">Firma:</label>
-            <select id="firma_navn" name="firma_navn" required>
-                <option value="DHL">DHL</option>
-                <option value="DSV">DSV</option>
-                <option value="GLS">GLS</option>
-                <option value="andet_firma">andet firma</option>
-            </select>
-        </div>
-        <div id="andet_firmafelt" class="form-group">
-            <label for="andet_firma">Andet Firma:</label>
-            <input type="text" id="andet_firma" name="andet_firma">
-        </div>
-        <div class="form-group">
-            <label for="kørerkort_nummer">Kørerkort nummer:</label>
-            <input type="text" id="kørerkort_nummer" name="kørerkort_nummer" required>
-        </div>
-        <div class="form-group">
-            <label for="fødselsdato">Fødselsdato:</label>
-            <input type="date" id="fødselsdato" name="fødselsdato" required>
-        </div>
-        <div class="form-group">
-            <button type="button" onclick="registerDateTime()" class="submit-button">INDSEND</button>
-        </div>
-    </form>
-</div>
+<section class="main-container">
+    <section class="creation-form-container">
+        <span class="opret-registrering-form-header">OPRET DIN REGISTRERING</span>
+        <form method="POST" action="create-new-registrering" class="input-field-container">
+            <input type="text" placeholder="Fornavn" class="input-field" name="fnavn" required>
+            <input type="text" placeholder="Efernavn" class="input-field" name="enavn" required>
+
+            <div class="lokation-objects">
+                <select name="lokation_navn" class="drop-down">
+                    <option value="lokation_navn">Haslev</option>
+                    <option value="lokation_navn">Boston</option>
+                </select>
+            </div>
+
+            <div class="firma-objects">
+                <select name="firma_navn" class="drop-down">
+                    <option value="firma_navn">DHL</option>
+                    <option value="firma_navn">DSV</option>
+                    <option value="firma_navn">GLS</option>
+                    <option value="andet firma">andet firma</option>
+                </select>
+            </div>
+
+            <input id="andet_firmafelt" type="text" placeholder="Andet Firma" class="input-field" name="firma_navn">
+            <input type="text" placeholder="Kørerkort nummer" class="input-field" name="kørerkort_nummer" required>
+            <input type="date" placeholder="Fødselsdato" class="input-field" name="fødselsdato" required>
+
+            <input type="submit" class="submit-button" value="INDSEND">
+        </form>
+    </section>
+</section>
 
 <footer class="footer">
     <div>
@@ -92,6 +79,18 @@
     </div>
 </footer>
 <script>
+    const firmaNavnSelect = document.querySelector('.drop-down');
+    const andetFirmaFelt = document.getElementById('andet_firmafelt');
+
+    firmaNavnSelect.addEventListener('change', function() {
+        if (firmaNavnSelect.value === 'andet firma') {
+            andetFirmaFelt.style.display = 'block';
+        } else {
+            andetFirmaFelt.style.display = 'none';
+        }
+    })
+</script>
+<script>
     window.onscroll = function() { myFunction() };
 
     var navbar = document.getElementById("navbar");
@@ -104,28 +103,6 @@
             navbar.classList.remove("sticky");
         }
     }
-</script>
-<script>
-    function registerDateTime() {
-        var currentDate = new Date().toISOString();
-        document.getElementById('indtjekningstidspunkt').value = currentDate;
-        redirectToRegistreretDansk();
-    }
-    function redirectToRegistreretDansk() {
-        window.location.href = '/registreretDansk';
-    }
-</script>
-<script>
-    const firmaNavnSelect = document.getElementById('firma_navn');
-    const andetFirmaFelt = document.getElementById('andet_firmafelt');
-
-    firmaNavnSelect.addEventListener('change', function() {
-        if (firmaNavnSelect.value === 'andet_firma') {
-            andetFirmaFelt.style.display = 'block';
-        } else {
-            andetFirmaFelt.style.display = 'none';
-        }
-    })
 </script>
 </body>
 </html>

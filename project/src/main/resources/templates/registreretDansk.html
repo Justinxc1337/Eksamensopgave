@@ -18,7 +18,10 @@
   <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
   <div class="centered">
     <div>VELKOMMEN TIL INTEC SYSTEM APS</div>
-    <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">DU ER NU REGISTRERET</div>
+    <div>DU ER NU REGISTRERET</div>
+    <div>
+      <button type="submit" onclick="redirectToIndex()" class="button">TILBAGE TIL START</button>
+    </div>
   </div>
 </div>
 
@@ -58,6 +61,11 @@
 </footer>
 
 <script th:src="@{/js/index.js}"></script>
+<script>
+  function redirectToIndex() {
+    window.location.href = "index.html";
+  }
+</script>
 
 </body>
 </html>

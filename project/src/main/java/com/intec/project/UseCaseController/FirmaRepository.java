@@ -16,84 +16,18 @@ public class FirmaRepository implements CRUDInterface<firma> {
 
     @Override
     public boolean create(firma entity) {
-
         String firma_navn = entity.getFirma_navn();
+        String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) VALUES (?);";
 
-        if (firma_navn.equals("DHL")) {
-            String query = "INSERT INTO `intecdatabase`.`firma` (`DHL`) VALUES (?);";
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
+             PreparedStatement stmt = connection.prepareStatement(query)) {
 
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setString(1, firma_navn);
-
-                try {
-                    stmt.executeUpdate();
-                    return true;
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        } else if (firma_navn.equals("GLS")) {
-            String query = "INSERT INTO `intecdatabase`.`firma` (`GLS`) VALUES (?);";
-
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setString(1, firma_navn);
-
-                try {
-                    stmt.executeUpdate();
-                    return true;
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        } else if (firma_navn.equals("DSV")) {
-            String query = "INSERT INTO `intecdatabase`.`firma` (`DSV`) VALUES (?);";
-
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setString(1, firma_navn);
-
-                try {
-                    stmt.executeUpdate();
-                    return true;
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        } else {
-            String columnName = "column_" + firma_navn.toLowerCase().replaceAll("[^a-z0-9_]", "");
-            String query = "ALTER TABLE `intecdatabase`.`firma` ADD COLUMN `" + columnName + "` VARCHAR(45);";
-
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.executeUpdate();
-                try {
-                    stmt.executeUpdate();
-                    return true;
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            stmt.setString(1, firma_navn);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
@@ -118,7 +52,7 @@ public class FirmaRepository implements CRUDInterface<firma> {
     }
 
     @Override
-    public void delete(LocalDateTime indtjekningstidpunkt) {
+    public void delete(LocalDateTime indtjekningstidspunkt) {
 
     }
 }

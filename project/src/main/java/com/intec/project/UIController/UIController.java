@@ -1,7 +1,5 @@
 package com.intec.project.UIController;
 
-
-import com.intec.project.UseCaseController.RegistreringRepository;
 import com.intec.project.services.RegistreringService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,22 +24,21 @@ public class UIController {
 	}
 
     @GetMapping("/formularDansk")
-    public String formularDansk(){
-        return "formularDansk";
-    }
+    public String formularDansk(){return "formularDansk";}
 
     @GetMapping("/formularEngelsk")
     public String formularEngelsk(){
         return "formularEngelsk";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create-new-registrering")
     public String createNewRegistrering(WebRequest dataFromForm){
         rs.createNewRegistrering(dataFromForm);
         return "registreretDansk";
     }
     @GetMapping("/registreretDansk")
     public String registreretDansk(){return "registreretDansk";}
+
 
     @GetMapping("/error")
     public String error(Model model) {
