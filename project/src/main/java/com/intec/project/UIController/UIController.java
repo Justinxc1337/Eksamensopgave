@@ -45,6 +45,12 @@ public class UIController {
         return "privatpolitik";
     }
 
+    @GetMapping("/privacypolicy") 
+        public String privacypolicy() {
+            return "privacypolicy";
+        }
+    
+
     @GetMapping("/formularDansk")
     public String formularDansk(){return "formularDansk";}
 
