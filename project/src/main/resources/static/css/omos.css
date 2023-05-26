@@ -443,4 +443,63 @@ a {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-size: 1.2rem;
+    text-align: center;
+}
+
+.linje {
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray;
+    margin-top: 10px;
+}
+
+.linje2 {
+    width:50%;
+    margin: auto;
+}
+
+.flyimg {
+    padding-top: 20px;
+    display: block;
+    height: 438px;
+    width: 438px;
+}
+
+.vismistekst {
+    display: inline-block;
+}
+
+.ul2 {
+    display: block;
+    text-align: start;
+    margin: auto;
+    font-size: 14px;
+    width: 50%;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: geomanist, sans-serif, geomanist, sans-serif;
+    color: #000;
+    font-size: 18px;
+    list-style-type: disc;
+    padding-bottom: 10px;
+}
+
+.li2 {
+    color: #000;
+    font-size: 14px;
+    list-style-type: disc;
+    padding-bottom: 10px;
+}
+
+.pphovedtekst {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    margin-bottom: 30px;
+    margin-block-start: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: geomanist, sans-serif, geomanist, sans-serif;
 }
