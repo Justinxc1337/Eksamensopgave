@@ -12,8 +12,11 @@ public class registrering {
 
     public registrering() {}
 
-    public registrering(LocalDateTime indtjekningstidspunkt) {
-        this.indtjekningstidspunkt = indtjekningstidspunkt;
+    public registrering(int registrering_id, int firma_id, int person_id, int lokation_id) {
+        this.registrering_id = registrering_id;
+        this.firma_id = firma_id;
+        this.person_id = person_id;
+        this.lokation_id = lokation_id;
     }
 
     public registrering(int registrering_id, int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
@@ -66,13 +69,13 @@ public class registrering {
 
     @Override
     public String toString() {
-        return "{" +
-            " registering_id='" + getRegistrering_id() + "'" +
-            ", firma_id='" + getFirma_id() + "'" +
-            ", person_id='" + getPerson_id() + "'" +
-            ", lokation_id='" + getLokation_id() + "'" +
-            ", indtjekningstidspunkt='" + getIndtjekningstidspunkt() + "'" +
-            "}";
+        return "registrering{" +
+                "registrering_id=" + registrering_id +
+                ", firma_id=" + firma_id +
+                ", person_id=" + person_id +
+                ", lokation_id=" + lokation_id +
+                ", indtjekningstidspunkt=" + indtjekningstidspunkt +
+                '}';
     }
 
 }
