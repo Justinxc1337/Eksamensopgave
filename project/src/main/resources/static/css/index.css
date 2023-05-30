@@ -141,7 +141,9 @@ a {
     padding-top: 10px;
     max-width: 200px;
     margin-left: 10%;
-    font-size: small;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: geomanist, sans-serif, geomanist, sans-serif;
 }
 
 .about{
