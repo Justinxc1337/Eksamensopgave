@@ -35,6 +35,11 @@ public class UIController {
         return "omos";
     }
 
+    @GetMapping("/aboutus")
+    public String aboutus() {
+        return "aboutus";
+    }
+
     @GetMapping("/kontaktos")
     public String kontaktos() {
         return "kontaktos";

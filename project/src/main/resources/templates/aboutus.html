@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/omos.css}">
+    <script type="text/javascript" th:src="@{/js/omos.js}"></script>
+    <title>Intec System aps</title>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/formularEngelsk}" class="nav-link">Complete registration</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/contactus}" class="nav-link">Contact us</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/aboutus}" class="nav-link">About us</a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/privacypolicy}" class="nav-link">privacy policy</a>
+          </li>
+        </ul>
+    </nav>
+
+<div class="img_container">
+    <img th:src="@{/Pictures/About.jpg}" class="index_cover blackfade">
+    <div class="centered">
+        <div>ABOUT INTEC SYSTEM APS</div>
+        <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;"></div>
+    </div>
+</div>
+
+</header>
+<h1 class="voresbaggrund"> OUR TEAM </h1>
+
+<div class="container">
+    <div class="card">
+        <img th:src="@{/Pictures/wonder.png}" alt="Hardstuck" class="card__image">
+      <p class="card__name"> Manager <br> Alexander Friedrich Wentzel</p>
+      <button class="btn draw-border" onclick="window.location.href='http://localhost:8080/kontaktos';">Send message</button>
+    </div>
+    <!-- Wonder "Direktør" offcentered?, how to fix idk, tried to fix, no work  -->
+
+    <div class="card">
+        <img th:src="@{/Pictures/Hechmann.png}" alt="Blækmann" class="card__image">
+      <p class="card__name"> Finance manager <br> Casper-Emil Hechmann</p>
+      <button class="btn draw-border" onclick="window.location.href='http://localhost:8080/kontaktos';">Send message</button>
+    </div>
+
+    <div class="card">
+        <img th:src="@{/Pictures/galver.png}" alt="Galver" class="card__image">
+      <p class="card__name"> Database administrator  <br> Nicklas Flor Galver</p>
+        <button class="btn draw-border" onclick="window.location.href='http://localhost:8080/kontaktos';">Send message</button>
+    </div>
+
+    <div class="card">
+      <img th:src="@{/Pictures/joller.png}" alt="Joller" class="card__image">
+      <p class="card__name"> Cheif of Marketing  <br> Justin ander Chardonnay </p>
+      <button class="btn draw-border" onclick="window.location.href='http://localhost:8080/kontaktos';">Send message</button>
+    </div>
+    </div>
+
+    <hr style="width: 90%; margin: auto; color: black; background-color: black; height: 2px;">
+
+    </div>
+
+    <div class="about">
+        <img th:src="@{/Pictures/intecfly.jpg}" class="flyimg">
+        <div>
+            <ul class="ul2">
+                <h1 class="pphovedtekst">OUR VISION</h1>
+                <li class="li2">We deliver the extra service that customers expect.</li>
+                <li class="li2">We always go the extra mile to put our customers ahead.</li>
+                <li class="li2">We serve the professional partners in the market.</li>
+                <li class="li2">We always work openly and honestly with a nose for good business.</li>
+                </div>
+                <div>
+            </ul>
+            <ul class="ul2">
+                <h1 class="pphovedtekst">OUR MISSION</h1>
+                <li class="li2">We really want to be our customers' preferred partner.</li>
+                <li class="li2">We really want to be our customers' extended expert arm.</li>
+                <li class="li2">Our goal is to make complex IT trade and freight forwarding a simple task.
+            </ul>
+        </div>
+    </div>
+<!-- ↑ kan bruge mere udvikling, ikke nødvendigt lige nu  -->
+
+
+
+<footer class="footer">
+    <hr size="2" width="90%" color="black">  
+    <div>
+        <h1>Intec System LLC</h1>
+        <p class="ptext">16192 Coastal Highway</p>
+        <p class="ptext">Lewes, Delaware 19958</p>
+        <p class="ptext">USA</p>
+    </div>
+    <div>
+        <h1>Service</h1>
+        <p class="ptext">E-mail: mh@intecsystem.dk</p>
+        <p class="ptext">Phone: +1 302 703 7638</p>
+        <p class="ptext">Legal Entity Number: 6526045
+    </div>
+    <div>
+        <h1>Bank account information</h1>
+        <p class="ptext">Reg. nr. 6821 Konto nr. 0009401061</p>
+        <p class="ptext">IBAN: DK1968210009401061</p>
+        <p class="ptext">SWIFT: SYBKDK22</p>
+    </div>
+    <div>
+        <h1>Information</h1>
+        <p class="linkudseende">
+        <a th:href="@{/aboutus}" class="linkudseende">About us</a>
+        <a th:href="@{/contactus}" class="linkudseende">Contact us</a>
+        <a th:href="@{/privacypolicy}" class="linkudseende">Privacy Policy</a>
+        </p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

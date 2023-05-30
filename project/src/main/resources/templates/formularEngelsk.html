@@ -11,17 +11,23 @@
 
 <body>
 
-<nav class="navbar">
-    <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
-    <ul class="nav-menu">
-        <li class="nav-item">
-            <a th:href="@{/dansk}" class="nav-link">DANISH</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{/engelsk}" class="nav-link">ENGLISH</a>
-        </li>
-    </ul>
-</nav>
+    <nav class="navbar" id="navbar">
+        <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a th:href="@{/formularEngelsk}" class="nav-link">Complete registration</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/contactus}" class="nav-link">Contact us</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/aboutus}" class="nav-link">About us</a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/privacypolicy}" class="nav-link">privacypolicy</a>
+          </li>
+        </ul>
+    </nav>
 
 <section class="main-container">
     <section class="creation-form-container">
@@ -78,7 +84,7 @@
     <div>
         <h1>Information</h1>
         <p class="linkudseende">
-        <a th:href="@{/omos}" class="linkudseende">About us</a>
+        <a th:href="@{/aboutus}" class="linkudseende">About us</a>
         <a th:href="@{/contactus}" class="linkudseende">Contact us</a>
         <a th:href="@{/privacypolicy}" class="linkudseende">Privacy Policy</a>
         </p>

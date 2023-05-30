@@ -7,6 +7,23 @@
   <title>Intec System aps</title>
 </head>
 <body>
+  <nav class="navbar" id="navbar">
+    <a th:href="@{/}" class="nav-logo"> <img th:src="@{/Pictures/logo.png}" class="logo"></a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a th:href="@{/formularEngelsk}" class="nav-link">Complete registration</a>
+    </li>
+        <li class="nav-item">
+            <a th:href="@{/contactus}" class="nav-link">Contact us</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/aboutus}" class="nav-link">About us</a>
+        </li>
+        <li class="nav-item">
+          <a th:href="@{/privacypolicy}" class="nav-link">privacy policy</a>
+      </li>
+    </ul>
+</nav>
 <h1>Error</h1>
 <p>Oops! Something went wrong.</p>
 </body>
