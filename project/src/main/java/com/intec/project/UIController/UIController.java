@@ -74,7 +74,7 @@ public class UIController {
 
     @GetMapping("/error")
     public String error(Model model) {
-        model.addAttribute("errorMessage", "Oops! Something went wrong2. \n Please contact the system administrator. ");
+        model.addAttribute("errorMessage", "Oops! Something went wrong. \n Please contact the system administrator.");
         return "error";
     }
 
