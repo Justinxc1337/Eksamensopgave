@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/engelsk.css">
+    <link rel="stylesheet" th:href="@{/css/engelsk.css}">
+
     <title>Intec System aps</title>
 </head>
 <nav class="navbar" id="navbar">
@@ -28,7 +29,7 @@
     <img th:src="@{/Pictures/han-chenxu-20qcctvyR1Q-unsplash.jpg}" class="index_cover blackfade">
     <div class="centered">
         <div>WELCOME TO INTEC SYSTEM APS</div>
-        <a th:href="@{/templates/formularEngelsk}"><button class="button">COMPLETE YOUR REGISTRATION</button></a>
+        <a th:href="@{/formularEngelsk}"><button class="button">COMPLETE YOUR REGISTRATION</button></a>
     </div>
 </div>
 
