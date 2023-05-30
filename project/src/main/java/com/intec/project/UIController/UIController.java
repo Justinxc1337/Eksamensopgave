@@ -40,6 +40,11 @@ public class UIController {
         return "kontaktos";
     }
 
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "contactus";
+    }
+
     @GetMapping("/privatpolitik")
     public String privatpolitik() {
         return "privatpolitik";
