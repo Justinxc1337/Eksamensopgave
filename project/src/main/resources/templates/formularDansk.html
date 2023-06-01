@@ -29,13 +29,61 @@
         </ul>
     </nav>
 
-<section class="main-container">
-    <!-- <video class="videoplayer" controls autoplay loop muted>
+    <!-- <section class="container">
+        <header >OPRET DIN REGISTRERING</header>
+        <form action="#" class="form">
+          <div class="input-box">
+            <label>Fornavn</label>
+            <input type="text" placeholder="Fornavn" class="input-field" name="fnavn" required>
+          </div>
+          <div class="input-box">
+            <label>Efternavn</label>
+            <input type="text" placeholder="Efternavn" class="input-field" name="enavn" required>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Phone Number</label>
+              <input type="number" placeholder="Enter phone number" required />
+            </div>
+            <div class="input-box">
+              <label>Birth Date</label>
+              <input type="date" placeholder="Enter birth date" required />
+            </div>
+          </div>
+          <div class="input-box address">
+            <label>Address</label>
+            <input type="text" placeholder="Enter street address" required />
+            <input type="text" placeholder="Enter street address line 2" required />
+            <div class="column">
+              <div class="select-box">
+                <select>
+                  <option hidden>Virksomhed</option>
+                    <option value="DHL">DHL</option>
+                    <option value="DSV">DSV</option>
+                    <option value="GLS">GLS</option>
+                    <option value="andet firma">Other company</option>
+                </select>
+              </div>
+              <input type="text" placeholder="Enter your city" required />
+            </div>
+            <div class="column">
+              <input type="text" placeholder="Enter your region" required />
+              <input type="number" placeholder="Enter postal code" required />
+            </div>
+          </div>
+          <button>Submit</button>
+        </form>
+      </section> -->
+
+
+ <section class="main-container">
+     <!-- <video class="videoplayer" controls autoplay loop muted>
         <source src="/video/intec.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video> 
-    ?? Kunne være en idé, men i realitet en distraktion ??
-    -->
+    ?? Kunne være en idé, men i realitet en distraktion ?? -->
+    
+
     <section class="creation-form-container">
         <span class="opret-registrering-form-header">OPRET DIN REGISTRERING</span>
         <form method="POST" action="create-new-registrering" class="input-field-container">
@@ -44,21 +92,19 @@
 
             <div class="lokation-objects">
                 <select name="lokation_navn" class="drop-down">
-                    <optgroup label="Lokation:">
+                    <option hidden>Lokation</option>
                     <option value="Haslev">Haslev</option>
                     <option value="Boston">Boston</option>
-                </optgroup>
                 </select>
             </div>
 
             <div class="firma-objects">
                 <select name="firma_navn" class="drop-down">
-                    <optgroup label="Virksomhed:">
+                    <option hidden>Virksomhed</option>
                     <option value="DHL">DHL</option>
                     <option value="DSV">DSV</option>
                     <option value="GLS">GLS</option>
                     <option value="andet firma">Other company</option>
-                </optgroup>
                 </select>
             </div>
 
