@@ -269,3 +269,8 @@ input, select {
 .firma-objects {
     margin-bottom: 10px;
 }
+
+.videoplayer {
+    width: 100%;
+    height: 100%;
+}
