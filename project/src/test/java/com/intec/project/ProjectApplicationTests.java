@@ -1,3 +1,5 @@
+package com.intec.project;
+
 import com.intec.project.UseCaseController.PersonRepository;
 import com.intec.project.entities.person;
 import org.junit.jupiter.api.Test;
