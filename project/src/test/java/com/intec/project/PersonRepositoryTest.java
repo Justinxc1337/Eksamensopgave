@@ -5,6 +5,8 @@ import com.intec.project.entities.person;
 import io.micrometer.core.instrument.config.validate.ValidationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -67,10 +69,10 @@ class ProjectApplicationTests {
 
 		try {
 			personRepository.create(persontest3);
-			fail("Expected ValidationException, but no exception was thrown.");
+			fail("Expected DateTimeException, but no exception was thrown.");
 		} catch (Exception e) {
 			// Kontroller om den kastede exception er en ValidationException
-			assertTrue(e instanceof ValidationException);
+			assertTrue(e instanceof java.time.DateTimeException);
 		}
 	}
 
