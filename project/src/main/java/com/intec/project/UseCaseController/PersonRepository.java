@@ -20,6 +20,17 @@ public class PersonRepository implements CRUDInterface<person> {
         String kørerkort_nummer = entity.getKørerkort_nummer();
         LocalDate fødselsdato = entity.getFødselsdato();
 
+
+        if (fnavn.isEmpty()) {
+            return false;
+        }
+        if (enavn.isEmpty()) {
+            return false;
+        }
+        if (kørerkort_nummer.isEmpty()) {
+            return false;
+        }
+
         String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) "
                 + "VALUES (?, ?, ?, ?)";
 
