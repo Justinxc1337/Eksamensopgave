@@ -1,11 +1,7 @@
-package com.intec.project;
-
 import com.intec.project.UseCaseController.PersonRepository;
 import com.intec.project.entities.person;
-import io.micrometer.core.instrument.config.validate.ValidationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.sql.Connection;
