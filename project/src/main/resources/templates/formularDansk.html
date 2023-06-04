@@ -24,7 +24,7 @@
                 <a th:href="@{/omos}" class="nav-link">Om os</a>
             </li>
             <li class="nav-item">
-                <a th:href="@{/privatpolitik}" class="nav-link">Privatpolitik</a>
+                <a th:href="@{/privatpolitik}" class="nav-link">Privatlivspolitik</a>
             </li>
         </ul>
     </nav>
@@ -100,18 +100,21 @@
 
             <div class="firma-objects">
                 <select name="firma_navn" class="drop-down">
-                    <option hidden>Virksomhed</option>
+                    <option hidden>Firma</option>
                     <option value="DHL">DHL</option>
                     <option value="DSV">DSV</option>
                     <option value="GLS">GLS</option>
-                    <option value="andet firma">Other company</option>
+                    <option value="andet firma">Andet firma</option>
                 </select>
             </div>
 
             <input id="andet_firmafelt" type="text" placeholder="Andet Firma" class="input-field" name="firma_navn">
             <input type="text" placeholder="Kørekort nummer" class="input-field" name="kørerkort_nummer" required>
             <input type="date" placeholder="Fødselsdato" class="input-field" name="fødselsdato" required>
-
+            <div class="tacbox">
+              <input id="checkbox" class="checkbox2" type="checkbox" required/>
+              <label for="checkbox" class="checkbox3"> Jeg accepterer <a th:href="@{/privatpolitik}">Privatlivspolitik</a>.</label>
+            </div>
             <input type="submit" class="submit-button" value="INDSEND">
         </form>
     </section>
@@ -146,7 +149,7 @@
         <p class="linkudseende">
         <a th:href="@{/omos}" class="linkudseende">Om os</a>
         <a th:href="@{/kontaktos}" class="linkudseende">Kontakt os</a>
-        <a th:href="@{/privatpolitik}" class="linkudseende">Privatpolitik</a>
+        <a th:href="@{/privatpolitik}" class="linkudseende">Privatlivspolitik</a>
         </p>
     </div>
 </footer>

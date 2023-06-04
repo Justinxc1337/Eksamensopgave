@@ -59,7 +59,10 @@
             <input id="andet_firmafelt" type="text" placeholder="Other company" class="input-field" name="firma_navn">
             <input type="text" placeholder="Driver's license number" class="input-field" name="kørerkort_nummer" required>
             <input type="date" placeholder="Birthday" class="input-field" name="fødselsdato" required>
-
+            <div class="tacbox">
+                <input id="checkbox" class="checkbox2" type="checkbox" required/>
+                <label for="checkbox" class="checkbox3"> I accept <a th:href="@{/privacypolicy}">privacypolicy</a>.</label>
+            </div>
             <input type="submit" class="submit-button" value="INDSEND">
         </form>
     </section>
