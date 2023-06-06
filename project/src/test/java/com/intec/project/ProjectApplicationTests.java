@@ -69,7 +69,7 @@ class ProjectApplicationTests {
 			personRepository.create(persontest3);
 			fail("Expected DateTimeException, but no exception was thrown.");
 		} catch (Exception e) {
-			// Kontroller om den kastede exception er en ValidationException
+			// Kontroller om den kastede exception er en DateTimeException
 			assertTrue(e instanceof java.time.DateTimeException);
 		}
 	}
