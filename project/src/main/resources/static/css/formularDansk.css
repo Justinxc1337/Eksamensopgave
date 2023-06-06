@@ -238,6 +238,23 @@ input, select {
     font-size: 1.2rem;
 }
 
+.img_container{
+  position: relative;
+  text-align: center;
+  background-color: black;
+  z-index: 0;
+}
+
+.index_cover{
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  right: 0px;
+  opacity: 0.4;
+  background-color: black;
+  position: relative;
+}
+
 .linkudseende:hover {
     color: blue;
     background-color: transparent;
@@ -256,6 +273,7 @@ input, select {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .creation-form-container {
