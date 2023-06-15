@@ -1,30 +1,34 @@
 package com.intec.project.services;
 
-import com.intec.project.UseCaseController.FirmaRepository;
-import com.intec.project.UseCaseController.LokationRepository;
-import com.intec.project.UseCaseController.PersonRepository;
-import com.intec.project.UseCaseController.RegistreringRepository;
+import com.intec.project.UseCaseController.*;
 import com.intec.project.entities.firma;
 import com.intec.project.entities.lokation;
 import com.intec.project.entities.person;
 import com.intec.project.entities.registrering;
 import org.springframework.web.context.request.WebRequest;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 
-public class RegistreringService {
+public class UseCaseController {
 
     RegistreringRepository rr = new RegistreringRepository();
     PersonRepository pr = new PersonRepository();
     LokationRepository lr = new LokationRepository();
     FirmaRepository fr = new FirmaRepository();
 
+    GDPR gdpr = new GDPR();
+
     public void createNewRegistrering(WebRequest dataFromForm){
         rr.create(getRegistrering(dataFromForm));
         pr.create(Objects.requireNonNull(getPerson(dataFromForm)));
         lr.create(Objects.requireNonNull(getLokation(dataFromForm)));
         fr.create(Objects.requireNonNull(getFirma(dataFromForm)));
+    }
+
+    public void sletPersonData(WebRequest dataFromForm){
+        gdpr.delete(LocalDateTime.now().minusYears(5));
     }
 
     private registrering getRegistrering(WebRequest dataFromForm) {

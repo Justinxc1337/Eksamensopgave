@@ -1,19 +1,16 @@
 package com.intec.project.UIController;
 
 import com.intec.project.UseCaseController.*;
-import com.intec.project.services.RegistreringService;
+import com.intec.project.services.UseCaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
-import java.time.LocalDateTime;
-
 
 @Controller
 public class UIController {
-    private RegistreringService rs = new RegistreringService();
-    private RegistreringRepository rr = new RegistreringRepository();
+    private UseCaseController ucc = new UseCaseController();
 
     @RequestMapping("/")
 	public String index() {return "index";}
@@ -67,8 +64,8 @@ public class UIController {
 
     @PostMapping("/create-new-registrering")
     public String createNewRegistrering(WebRequest dataFromForm){
-        rs.createNewRegistrering(dataFromForm);
-        rr.getAll();
+        ucc.createNewRegistrering(dataFromForm);
+        ucc.sletPersonData(dataFromForm);
         return "registreretDansk";
     }
     @GetMapping("/registreretDansk")
