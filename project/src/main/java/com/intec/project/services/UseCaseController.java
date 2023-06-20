@@ -12,15 +12,15 @@ import java.util.Objects;
 
 
 public class UseCaseController {
+    RegistreringRepository rr = new RegistreringRepository(); // Oprettelse af RegistreringRepository-objekt
+    PersonRepository pr = new PersonRepository(); // Oprettelse af PersonRepository-objekt
+    LokationRepository lr = new LokationRepository(); // Oprettelse af LokationRepository-objekt
+    FirmaRepository fr = new FirmaRepository(); // Oprettelse af FirmaRepository-objekt
 
-    RegistreringRepository rr = new RegistreringRepository();
-    PersonRepository pr = new PersonRepository();
-    LokationRepository lr = new LokationRepository();
-    FirmaRepository fr = new FirmaRepository();
-
-    GDPR gdpr = new GDPR();
+    GDPR gdpr = new GDPR(); // Oprettelse af GDPR-objekt
 
     public void createNewRegistrering(WebRequest dataFromForm){
+        // Opretter en ny registrering, person, lokation og firma ved hjælp af data fra formularen
         rr.create(getRegistrering(dataFromForm));
         pr.create(Objects.requireNonNull(getPerson(dataFromForm)));
         lr.create(Objects.requireNonNull(getLokation(dataFromForm)));
@@ -28,11 +28,11 @@ public class UseCaseController {
     }
 
     public void sletPersonData(WebRequest dataFromForm){
-        gdpr.delete(LocalDateTime.now().minusYears(5));
+        gdpr.delete(LocalDateTime.now().minusYears(5)); // Sletter persondata, der er ældre end 5 år
     }
 
     private registrering getRegistrering(WebRequest dataFromForm) {
-        return null;
+        return null; // Returnerer null (ikke implementeret)
     }
 
     private firma getFirma(WebRequest dataFromForm) {
@@ -40,16 +40,16 @@ public class UseCaseController {
             String firma_navn = dataFromForm.getParameter("firma_navn");
 
             if (firma_navn != null) {
-                return new firma(firma_navn);
+                return new firma(firma_navn); // Opretter et nyt firmaobjekt med firma_navn
             }
 
-            System.out.println("firma not created");
+            System.out.println("firma not created"); // Udskriver en fejlmeddelelse, hvis firmaet ikke kunne oprettes
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("firma not created");
+            System.out.println("firma not created"); // Udskriver en fejlmeddelelse ved en exception
         }
 
-        return null;
+        return null; // Returnerer null, hvis firmaet ikke kunne oprettes
     }
 
     private person getPerson(WebRequest dataFromForm) {
@@ -60,16 +60,16 @@ public class UseCaseController {
             LocalDate fødselsdato = LocalDate.parse(Objects.requireNonNull(dataFromForm.getParameter("fødselsdato")));
 
             if (fnavn != null && enavn != null && kørerkort_nummer != null && fødselsdato != null) {
-                return new person(fnavn, enavn, kørerkort_nummer, fødselsdato);
+                return new person(fnavn, enavn, kørerkort_nummer, fødselsdato); // Opretter et nyt personobjekt med de angivne parametre
             }
 
-            System.out.println("person not created");
+            System.out.println("person not created"); // Udskriver en fejlmeddelelse, hvis personen ikke kunne oprettes
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("person not created");
+            System.out.println("person not created"); // Udskriver en fejlmeddelelse ved en exception
         }
 
-        return null;
+        return null; // Returnerer null, hvis personen ikke kunne oprettes
     }
 
     private lokation getLokation(WebRequest dataFromForm) {
@@ -77,15 +77,15 @@ public class UseCaseController {
             String lokation_navn = dataFromForm.getParameter("lokation_navn");
 
             if (lokation_navn != null) {
-                return new lokation(lokation_navn);
+                return new lokation(lokation_navn); // Opretter et nyt lokationobjekt med lokation_navn
             }
 
-            System.out.println("lokation not created");
+            System.out.println("lokation not created"); // Udskriver en fejlmeddelelse, hvis lokationen ikke kunne oprettes
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("lokation not created");
+            System.out.println("lokation not created"); // Udskriver en fejlmeddelelse ved en exception
         }
 
-        return null;
+        return null; // Returnerer null, hvis lokationen ikke kunne oprettes
     }
 }

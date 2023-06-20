@@ -11,9 +11,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class LokationRepository implements CRUDInterface<lokation> {
+    // Implementerer CRUDInterface med typen lokation
 
     @Override
     public boolean create(lokation entity) {
+        // Opretter en ny lokation i databasen
         if (entity == null || entity.getLokation_navn() == null) {
             return false;
         }
@@ -42,6 +44,7 @@ public class LokationRepository implements CRUDInterface<lokation> {
 
     @Override
     public ArrayList<lokation> getAll() {
+        // Henter alle lokationer fra databasen og returnerer dem som en liste
         ArrayList<lokation> lokation = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
@@ -59,8 +62,9 @@ public class LokationRepository implements CRUDInterface<lokation> {
         }
         return lokation;
     }
+    
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-
+        // Slet-metode er ikke implementeret
     }
 }

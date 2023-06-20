@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
-
+//mapping til at dirigere rundt på website
+//getmapping(intec.com/formular)
 @Controller
 public class UIController {
     private UseCaseController ucc = new UseCaseController();
