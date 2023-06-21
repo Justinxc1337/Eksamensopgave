@@ -84,6 +84,6 @@ public class PersonRepository implements CRUDInterface<person> {
 
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-        // Slet-metode er ikke implementeret
+        // ikke relevant
     }
 }

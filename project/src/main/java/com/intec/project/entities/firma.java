@@ -1,15 +1,12 @@
-//getter og setter ind til database
 
 package com.intec.project.entities;
 
-//standardkonstruktør der opretter ny instans af klassen firma
+
 public class firma {
 
     private int firma_id;
     private String firma_navn;
 
-
-//getter og setter ind til database
     public firma() {}
 
     public firma(int firma_id, String firma_navn) {
@@ -36,7 +33,7 @@ public class firma {
     public void setFirma_navn(String firma_navn) {
         this.firma_navn = firma_navn;
     }
-//tostring(bytecode)
+
     @Override
     public String toString() {
         return "{" +

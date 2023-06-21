@@ -1,13 +1,12 @@
 package com.intec.project.entities;
 
 
-//standardkonstruktør der opretter ny instans af klassen lokation
 public class lokation {
 
     private int lokation_id;
     private String lokation_navn;
 
-//getter og setter ind til database
+
     public lokation(){}
 
     public lokation(int lokation_id, String lokation_navn) {
@@ -34,7 +33,7 @@ public class lokation {
     public void setLokation_navn(String lokation_navn) {
         this.lokation_navn = lokation_navn;
     }
-//toString(bytecode)
+
     @Override
     public String toString() {
         return "{" +

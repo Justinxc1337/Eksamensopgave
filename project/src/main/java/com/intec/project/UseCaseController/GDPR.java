@@ -31,13 +31,13 @@ public class GDPR implements CRUDInterface<registrering> {
 
     @Override
     public boolean create(registrering entity) {
-        // Oprettelse af en registrering er ikke implementeret (returnerer altid false)
+        // ikke relevant
         return false;
     }
 
     @Override
     public ArrayList<registrering> getAll() {
-        // Hentning af registreringer er ikke implementeret (returnerer altid null)
+        // ikke relevant
         return null;
     }
 }

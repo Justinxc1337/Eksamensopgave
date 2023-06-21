@@ -54,7 +54,6 @@ public class FirmaRepository implements CRUDInterface<firma> {
 
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-        // Sletter en firma entitet baseret på indtjekningstidspunktet
-        // Implementering mangler (tom metode)
+        // ikke relevant
     }
 }

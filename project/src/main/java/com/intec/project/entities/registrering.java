@@ -1,9 +1,6 @@
 package com.intec.project.entities;
-
 import java.time.LocalDateTime;
 
-
-//standardkonstruktør der opretter ny instans af klassen "registering_id"
 public class registrering {
 
     private int registrering_id;
@@ -12,16 +9,15 @@ public class registrering {
     private int lokation_id;
     private LocalDateTime indtjekningstidspunkt;
 
- //konstruktør
     public registrering() {}
- //konstruktør
+
     public registrering(int registrering_id, int firma_id, int person_id, int lokation_id) {
         this.registrering_id = registrering_id;
         this.firma_id = firma_id;
         this.person_id = person_id;
         this.lokation_id = lokation_id;
     }
- //konstruktør
+
     public registrering(int registrering_id, int firma_id, int person_id, int lokation_id, LocalDateTime indtjekningstidspunkt) {
         this.registrering_id = registrering_id;
         this.firma_id = firma_id;
@@ -30,7 +26,6 @@ public class registrering {
         this.indtjekningstidspunkt = indtjekningstidspunkt;
     }
 
-    //getter og setter ind til database
     public int getRegistrering_id() {
         return this.registrering_id;
     }
@@ -70,7 +65,7 @@ public class registrering {
     public void setIndtjekningstidspunkt(LocalDateTime indtjekningstidspunkt) {
         this.indtjekningstidspunkt = indtjekningstidspunkt;
     }
-//toString(bytecode)
+
     @Override
     public String toString() {
         return "registrering{" +

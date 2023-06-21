@@ -48,6 +48,6 @@ public class RegistreringRepository implements CRUDInterface<registrering> {
 
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-        // Slet-metode er ikke implementeret
+        // ikke relevant
     }
 }

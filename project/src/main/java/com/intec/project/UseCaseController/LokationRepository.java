@@ -65,6 +65,6 @@ public class LokationRepository implements CRUDInterface<lokation> {
     
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-        // Slet-metode er ikke implementeret
+        // ikke relevant
     }
 }

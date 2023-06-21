@@ -1,9 +1,6 @@
 package com.intec.project.entities;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-//standardkonstruktør der opretter ny instans af klassen "person"
 public class person {
 
     private int person_id;
@@ -14,7 +11,6 @@ public class person {
 
     public person(){}
 
-    //konstruktør der tager imod forskellige parametre(id, fnavn, enavn.....)
     public person(int person_id, String fnavn, String enavn, String kørerkort_nummer, LocalDate fødselsdato) {
     this.person_id = person_id;
     this.fnavn = fnavn;
@@ -30,8 +26,6 @@ public class person {
         this.fødselsdato = fødselsdato;
     }
 
-
-//getter og setter ind til database
     public int getPerson_id() {
         return this.person_id;
     }
@@ -71,7 +65,8 @@ public class person {
     public void setFødselsdato(LocalDate fødselsdato) {
         this.fødselsdato = fødselsdato;
     }
-//toString(bytecode)
+
+
     @Override
     public String toString() {
         return "{" +
