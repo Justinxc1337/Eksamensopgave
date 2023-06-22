@@ -1,4 +1,4 @@
-package com.intec.project.entities;
+package com.intec.project.Entities;
 import java.time.LocalDateTime;
 
 public class registrering {

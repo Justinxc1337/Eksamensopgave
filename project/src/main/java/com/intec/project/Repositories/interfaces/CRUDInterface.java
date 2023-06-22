@@ -1,4 +1,4 @@
-package com.intec.project.UseCaseController.interfaces;
+package com.intec.project.Repositories.interfaces;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

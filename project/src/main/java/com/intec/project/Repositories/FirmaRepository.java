@@ -1,7 +1,7 @@
-package com.intec.project.UseCaseController;
+package com.intec.project.Repositories;
 
-import com.intec.project.UseCaseController.interfaces.CRUDInterface;
-import com.intec.project.entities.firma;
+import com.intec.project.Repositories.interfaces.CRUDInterface;
+import com.intec.project.Entities.firma;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

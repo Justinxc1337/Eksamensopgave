@@ -1,7 +1,6 @@
 package com.intec.project.UIController;
 
-import com.intec.project.UseCaseController.*;
-import com.intec.project.services.UseCaseController;
+import com.intec.project.UseCaseController.UseCaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
