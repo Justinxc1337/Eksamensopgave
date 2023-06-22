@@ -2,9 +2,9 @@ package com.intec.project;
 
 import com.intec.project.UseCaseController.PersonRepository;
 import com.intec.project.entities.person;
-import io.micrometer.core.instrument.config.validate.ValidationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -27,21 +26,36 @@ class ProjectApplicationTests {
 	}
 
 	//Positivt testtilfælde:
-	//Test om create-metoden opretter en person korrekt i databasen.
+	//Test hvor create-metoden opretter en person korrekt i databasen.
 	@Test
 	public void testCreatePerson_Success() {
 		//Opretter en instans af PersonRepository
 		PersonRepository personRepositoryTest = new PersonRepository();
 		//Opretter testdata i databasen
-		person persontest = new person("John", "Doe", "1234567890", LocalDate.of(1990, 5, 15));
+		person persontest1 = new person("John", "Doe", "1234567890", LocalDate.of(1990, 5, 15));
 
 
-		boolean result = personRepositoryTest.create(persontest);
+		boolean result = personRepositoryTest.create(persontest1);
 
 
 		assertTrue(result);
 	}
 
+	//Negativt testtilfælde:
+	//Test hvor create-metoden håndterer ugyldige datainput som en tom værdi for fornavn.
+	@Test
+	public void testCreatePerson_InvalidInput() {
+		//Opretter en instans af PersonRepository
+		PersonRepository personRepository = new PersonRepository();
+		//Opretter testdata i databasen
+		person persontest2 = new person("", "Doe", "1234567890", LocalDate.of(1990, 5, 15));
+
+
+		boolean result = personRepository.create(persontest2);
+
+
+		assertFalse(result);
+	}
 
 	//Validering af input hvor create-metoden håndterer validering af input af en ugyldig fødselsdato.
 	@Test
@@ -49,14 +63,14 @@ class ProjectApplicationTests {
 		//Opretter en instans af PersonRepository
 		PersonRepository personRepository = new PersonRepository();
 		//Opretter testdata i databasen
-		person persontest2 = new person("John", "Doe", "1234567890", LocalDate.of(1990, 13, 45));
+		person persontest3 = new person("John", "Doe", "1234567890", LocalDate.of(1990, 13, 45));
 
 		try {
-			personRepository.create(persontest2);
-			fail("Expected ValidationException, but no exception was thrown.");
+			personRepository.create(persontest3);
+			fail("Expected DateTimeException, but no exception was thrown.");
 		} catch (Exception e) {
-			// Kontroller om den kastede exception er en ValidationException
-			assertTrue(e instanceof ValidationException);
+			// Kontroller om den kastede exception er en DateTimeException
+			assertTrue(e instanceof java.time.DateTimeException);
 		}
 	}
 

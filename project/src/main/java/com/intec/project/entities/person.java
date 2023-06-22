@@ -1,8 +1,5 @@
 package com.intec.project.entities;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 
 public class person {
 
@@ -68,6 +65,7 @@ public class person {
     public void setFødselsdato(LocalDate fødselsdato) {
         this.fødselsdato = fødselsdato;
     }
+
 
     @Override
     public String toString() {

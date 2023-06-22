@@ -1,9 +1,11 @@
 package com.intec.project.entities;
 
+
 public class lokation {
 
     private int lokation_id;
     private String lokation_navn;
+
 
     public lokation(){}
 

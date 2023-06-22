@@ -12,13 +12,26 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class PersonRepository implements CRUDInterface<person> {
+    // Implementerer CRUDInterface med typen person
 
     @Override
     public boolean create(person entity) {
+        // Opretter en ny person i databasen
         String fnavn = entity.getFnavn();
         String enavn = entity.getEnavn();
         String kørerkort_nummer = entity.getKørerkort_nummer();
         LocalDate fødselsdato = entity.getFødselsdato();
+
+        // Validerer felterne
+        if (fnavn.isEmpty()) {
+            return false;
+        }
+        if (enavn.isEmpty()) {
+            return false;
+        }
+        if (kørerkort_nummer.isEmpty()) {
+            return false;
+        }
 
         String query = "INSERT INTO `intecdatabase`.`person` (`fnavn`, `enavn`, `kørerkort_nummer`, `fødselsdato`) "
                 + "VALUES (?, ?, ?, ?)";
@@ -45,6 +58,7 @@ public class PersonRepository implements CRUDInterface<person> {
 
     @Override
     public ArrayList<person> getAll() {
+        // Henter alle personer fra databasen og returnerer dem som en liste
         ArrayList<person> person = new ArrayList<>();
 
         try {
@@ -68,10 +82,8 @@ public class PersonRepository implements CRUDInterface<person> {
         return person;
     }
 
-
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-
+        // ikke relevant
     }
-
 }

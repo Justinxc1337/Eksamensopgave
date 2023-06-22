@@ -9,15 +9,17 @@ import java.util.ArrayList;
 
 
 public class RegistreringRepository implements CRUDInterface<registrering> {
-
+    // Implementerer CRUDInterface med typen registrering
 
     @Override
     public boolean create(registrering entity) {
+        // Oprettelse af registrering er ikke implementeret og returnerer altid false
         return false;
     }
 
     @Override
     public ArrayList<registrering> getAll() {
+        // Henter alle registreringer fra databasen og returnerer dem som en liste
         ArrayList<registrering> registreringer = new ArrayList<>();
 
         try {
@@ -46,6 +48,6 @@ public class RegistreringRepository implements CRUDInterface<registrering> {
 
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-
+        // ikke relevant
     }
 }

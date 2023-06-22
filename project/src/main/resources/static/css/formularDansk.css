@@ -177,9 +177,32 @@ a {
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    display: inline-block;
+    margin-bottom: 0;
     font-weight: bold;
+}
+
+.tacbox input, .tacbox label {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: bold;
+  height: 10px;
+  width: auto;
+}
+
+input.checkbox2 {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox3 {
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  position: relative;
+  bottom: 5px;
 }
 
 input, select {
@@ -215,6 +238,23 @@ input, select {
     font-size: 1.2rem;
 }
 
+.img_container{
+  position: relative;
+  text-align: center;
+  background-color: black;
+  z-index: 0;
+}
+
+.index_cover{
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  right: 0px;
+  opacity: 0.4;
+  background-color: black;
+  position: relative;
+}
+
 .linkudseende:hover {
     color: blue;
     background-color: transparent;
@@ -233,6 +273,7 @@ input, select {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .creation-form-container {
@@ -275,7 +316,30 @@ input, select {
     height: 100%;
 }
 
+.gdprlov {
+    display: flex;
+}
 
+.gpdrlovtekst {
+  display: flex;
+}
+
+.tacbox {
+  display: inline;
+  padding: 1em;
+  margin: 1em;
+  border: 3px solid #ddd;
+  background-color: #eee;
+  max-width: 500px;
+  font-weight: normal;
+  flex-wrap: wrap;
+  box-align: start;
+  align-content: space-between;
+  box-pack: center;
+  gap: 50px;
+  justify-content: center;
+  font-size: 14px;
+}
 
 
 /* Import Google font - Poppins 

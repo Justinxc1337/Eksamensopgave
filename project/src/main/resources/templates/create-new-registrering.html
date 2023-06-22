@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/create-new-registrering.css}">
     <script type="text/javascript" th:src="@{/js/index.js}"></script>
     <title>Intec System aps</title>
 </head>
-
+ <!-- Page does nothing, idea testing due to incorrect pathing, due to postmapping difficulties and problems -->
 <body>
 
 <nav class="navbar" id="navbar">
@@ -28,13 +28,7 @@
     <div class="centered">
         <div>WELCOME TO INTEC SYSTEM APS</div>
         <div style="font-family: 'Inter',sans-serif; font-style: normal; font-weight: 300; font-size: 15px;">SELECT A LANGUAGE TO CONTINUE</div>
-        <div class="flag">
-          <a th:href="@{/dansk}"> <img th:src="@{/Pictures/dansk.jpeg}" class="flag"></a>
-        </div> 
-        <div>
-          <a th:href="@{/engelsk}"> <img th:src="@{/Pictures/engelsk.png}" class="flag"></a>
-        </div>
-      </div>
+    </div>
 </div>
 
 <div class="about">
@@ -105,7 +99,7 @@
         <p class="linkudseende">
         <a th:href="@{/omos}" class="linkudseende">Om os</a>
         <a th:href="@{/kontaktos}" class="linkudseende">Kontakt os</a>
-        <a th:href="@{/privatpolitik}" class="linkudseende">Privatlivspolitik</a>
+        <a th:href="@{/privatpolitik}" class="linkudseende">Privatpolitik</a>
         </p>
     </div>
 </footer>

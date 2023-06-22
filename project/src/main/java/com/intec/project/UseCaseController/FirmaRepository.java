@@ -11,9 +11,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class FirmaRepository implements CRUDInterface<firma> {
+    // Implementerer CRUDInterface med typen firma
 
     @Override
     public boolean create(firma entity) {
+        // Opretter en ny firma entitet i databasen
         String firma_navn = entity.getFirma_navn();
         String query = "INSERT INTO `intecdatabase`.`firma` (`firma_navn`) VALUES (?);";
 
@@ -31,6 +33,7 @@ public class FirmaRepository implements CRUDInterface<firma> {
 
     @Override
     public ArrayList<firma> getAll() {
+        // Henter alle firma entiteter fra databasen
         ArrayList<firma> firma = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.56.1:3306/intecdatabase", "root", "root123");
@@ -51,6 +54,6 @@ public class FirmaRepository implements CRUDInterface<firma> {
 
     @Override
     public void delete(LocalDateTime indtjekningstidspunkt) {
-
+        // ikke relevant
     }
 }
