@@ -1,10 +1,10 @@
 package com.intec.project;
 
-import com.intec.project.UseCaseController.PersonRepository;
-import com.intec.project.entities.person;
+import com.intec.project.Repositories.PersonRepository;
+import com.intec.project.Entities.person;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.time.DateTimeException;
+
 import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.DriverManager;

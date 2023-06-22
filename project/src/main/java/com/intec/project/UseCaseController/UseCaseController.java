@@ -1,10 +1,10 @@
-package com.intec.project.services;
+package com.intec.project.UseCaseController;
 
-import com.intec.project.UseCaseController.*;
-import com.intec.project.entities.firma;
-import com.intec.project.entities.lokation;
-import com.intec.project.entities.person;
-import com.intec.project.entities.registrering;
+import com.intec.project.Repositories.*;
+import com.intec.project.Entities.firma;
+import com.intec.project.Entities.lokation;
+import com.intec.project.Entities.person;
+import com.intec.project.Entities.registrering;
 import org.springframework.web.context.request.WebRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

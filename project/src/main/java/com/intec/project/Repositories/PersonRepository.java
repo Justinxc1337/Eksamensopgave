@@ -1,6 +1,6 @@
-package com.intec.project.UseCaseController;
-import com.intec.project.UseCaseController.interfaces.CRUDInterface;
-import com.intec.project.entities.person;
+package com.intec.project.Repositories;
+import com.intec.project.Repositories.interfaces.CRUDInterface;
+import com.intec.project.Entities.person;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,5 +1,5 @@
 
-package com.intec.project.entities;
+package com.intec.project.Entities;
 
 
 public class firma {

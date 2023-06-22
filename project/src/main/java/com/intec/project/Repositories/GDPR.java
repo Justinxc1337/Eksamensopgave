@@ -1,4 +1,4 @@
-package com.intec.project.UseCaseController;
+package com.intec.project.Repositories;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import com.intec.project.UseCaseController.interfaces.CRUDInterface;
-import com.intec.project.entities.registrering;
+import com.intec.project.Repositories.interfaces.CRUDInterface;
+import com.intec.project.Entities.registrering;
 
 public class GDPR implements CRUDInterface<registrering> {
     // Implementerer CRUDInterface med typen registrering
